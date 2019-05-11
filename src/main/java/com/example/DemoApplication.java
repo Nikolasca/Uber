@@ -21,7 +21,14 @@ public class DemoApplication {
     return "Hello from Choko!";
   }
 
+  @RequestMapping("/prueba")
+  @ResponseBody
+  String hello2() {
+    return "Hello from the other side";
+  }
+
   public static void main(String[] args) {
     SpringApplication.run(DemoApplication.class, args);
   }
 }
+<
