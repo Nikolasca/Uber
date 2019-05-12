@@ -23,8 +23,8 @@ public class DemoApplication {
 
   @RequestMapping("/prueba")
   @ResponseBody
-  String prueba() {
-    return "Hello from the other side";
+  String prueba2() {
+    return "Hello from the other side ---SS";
   }
 
   public static void main(String[] args) {
