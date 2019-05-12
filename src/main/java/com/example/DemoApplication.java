@@ -24,7 +24,7 @@ public class DemoApplication {
   @RequestMapping("/prueba")
   @ResponseBody
   String prueba2() {
-    return "Hello from the other side -- Otra Prueba";
+    return "Hello from the other side -- Otra Prueba23";
   }
 
   public static void main(String[] args) {

@@ -2,3 +2,5 @@ build/
 .idea
 *.iml
 .vscode/settings.json
+.settings/org.eclipse.buildship.core.prefs
+.project
