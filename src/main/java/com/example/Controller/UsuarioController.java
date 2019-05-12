@@ -10,6 +10,7 @@ import org.springframework.stereotype.*;
 @RequestMapping("/servicio")
 public class UsuarioController{
     @RequestMapping(method = RequestMethod.GET)
+    @ResponseBody
     public String  Hola() {
         return "Hola Níkolas";
         
