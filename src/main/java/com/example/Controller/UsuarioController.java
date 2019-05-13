@@ -16,7 +16,7 @@ public class UsuarioController{
         
     }
 
-    @RequestMapping(value = "/Hola", method = RequestMethod.POST)
+    @RequestMapping(value = "/Hola", method = RequestMethod.GET)
     @ResponseBody
     public String  Test(String name) {
         return "Hola"+name ;
