@@ -17,8 +17,8 @@ public class DemoApplication {
 
   @RequestMapping("/hello")
   @ResponseBody
-  String hello() {
-    return "Hello from Choko!";
+  String hello(String s) {
+    return "Hello from Choko!"´+s;  
   }
 
   @RequestMapping("/prueba")
