@@ -67,7 +67,7 @@ public class UsuarioController{
     @ResponseBody
     public String Login(@RequestParam("user") String user, @RequestParam("pass") String pass){
            
-        String mensaje= "";
+        String mensaje= "Hola";
         boolean x = false;
         ArrayList<Usuario> usuarios = s.getUsuarios();
         mensaje = String.valueOf(usuarios.size());
