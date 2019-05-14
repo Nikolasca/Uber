@@ -65,12 +65,12 @@ public class UsuarioController{
     }
     @RequestMapping(value = "/Login", method = RequestMethod.POST)
     @ResponseBody
-    public String Login(@RequestParam("user") , @RequestParam("pass")){
+    public String Login(@RequestParam("user") String user, @RequestParam("pass") String pass){
         String mensaje= "";
         boolean x = false;
         ArrayList<Usuario> usuarios = s.getUsuarios();
         for (Usuario usuario : usuarios) {
-            if ((usuario.getUsuario().compareTo(A) == 0) && (usuario.getPassword().compareTo(B) == 0)) {
+            if ((usuario.getUsuario().compareTo(user) == 0) && (usuario.getPassword().compareTo(pass) == 0)) {
                 x = true;
                 return mensaje = "Usuario Aceptado";
             }
