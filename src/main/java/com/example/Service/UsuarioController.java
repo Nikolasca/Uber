@@ -66,9 +66,11 @@ public class UsuarioController{
     @RequestMapping(value = "/Login", method = RequestMethod.POST)
     @ResponseBody
     public String Login(@RequestParam("user") String user, @RequestParam("pass") String pass){
-        String mensaje= "123";
+           
+        String mensaje= "";
         boolean x = false;
         ArrayList<Usuario> usuarios = s.getUsuarios();
+        mensaje = String.valueOf(usuarios.size());
         for (Usuario usuario : usuarios) {
             if ((usuario.getUsuario().compareTo(user) == 0) && (usuario.getPassword().compareTo(pass) == 0)) {
                 x = true;
