@@ -66,7 +66,7 @@ public class UsuarioController{
     @RequestMapping(value = "/Login", method = RequestMethod.POST)
     @ResponseBody
     public String Login(@RequestParam("user") String user, @RequestParam("pass") String pass){
-        String mensaje= "";
+        String mensaje= "123";
         boolean x = false;
         ArrayList<Usuario> usuarios = s.getUsuarios();
         for (Usuario usuario : usuarios) {
@@ -77,7 +77,7 @@ public class UsuarioController{
 
         }
         if (x == false) {
-              return mensaje = "No se encontr� usuario";
+              return mensaje = "No se encontro usuario";
         }
 
 
