@@ -36,9 +36,9 @@ public class UsuarioController{
         if (C.compareTo("Conductor") == 0) {
             Usuario user = new Conductor();
             user.setId(s.getUsuarios().size() + 1);
-            user.setTipo_Usuario(C);
-            user.setUsuario(A);
-            user.setPassword(B);
+            user.setTipo_Usuario(type);
+            user.setUsuario(name);
+            user.setPassword(pass);
             s.Add(user);
              mensaje = "Conductor Creado";
             return  mensaje;
@@ -46,18 +46,18 @@ public class UsuarioController{
         } else if (C.compareTo("Pasajero") == 0) {
             Usuario user = new Pasajero();
             user.setId(s.getUsuarios().size() + 1);
-            user.setTipo_Usuario(C);
-            user.setUsuario(A);
-            user.setPassword(B);
+            user.setTipo_Usuario(type);
+            user.setUsuario(name);
+            user.setPassword(pass);
             s.Add(user);
              mensaje = "Pasajero Creado";
             return  mensaje;
         } else if (C.compareTo("Administrador") == 0) {
             Usuario user = new Adapter();
             user.setId(s.getUsuarios().size() + 1);
-            user.setTipo_Usuario(C);
-            user.setUsuario(A);
-            user.setPassword(B);
+            user.setTipo_Usuario(type);
+            user.setUsuario(name);
+            user.setPassword(pass);
             s.Add(user);
             mensaje = "Administrador Creado";
             return  mensaje;
