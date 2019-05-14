@@ -82,7 +82,7 @@ public class UsuarioController{
 
         }
         if (x == false) {
-              return mensaje = "No se encontro usuario";
+              return mensaje = "No se encontro usuario - Revisar Usuario y contraseña";
         }
 
 
