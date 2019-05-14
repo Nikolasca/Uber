@@ -36,7 +36,7 @@ public class UsuarioController{
     @ResponseBody
     public String  Register(@RequestParam("name") String name, @RequestParam("pass") String pass, @RequestParam("type") String type) {
         String mensaje = "";
-        if (C.compareTo("Conductor") == 0) {
+        if (type.compareTo("Conductor") == 0) {
             Usuario user = new Conductor();
             user.setId(s.getUsuarios().size() + 1);
             user.setTipo_Usuario(type);
@@ -46,7 +46,7 @@ public class UsuarioController{
              mensaje = "Conductor Creado";
             return  mensaje;
 
-        } else if (C.compareTo("Pasajero") == 0) {
+        } else if (type.compareTo("Pasajero") == 0) {
             Usuario user = new Pasajero();
             user.setId(s.getUsuarios().size() + 1);
             user.setTipo_Usuario(type);
@@ -55,7 +55,7 @@ public class UsuarioController{
             s.Add(user);
              mensaje = "Pasajero Creado";
             return  mensaje;
-        } else if (C.compareTo("Administrador") == 0) {
+        } else if (type.compareTo("Administrador") == 0) {
             Usuario user = new Adapter();
             user.setId(s.getUsuarios().size() + 1);
             user.setTipo_Usuario(type);
