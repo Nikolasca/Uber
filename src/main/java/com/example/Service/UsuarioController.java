@@ -63,12 +63,30 @@ public class UsuarioController{
         return mensaje;
    
     }
-    
     @RequestMapping(value = "/Login", method = RequestMethod.POST)
     @ResponseBody
     public String Login(@RequestParam("user") String user, @RequestParam("pass") String pass){
            
-       return "Hola";
+        String mensaje= "Vacio";
+        boolean x = false;
+        ArrayList<Usuario> usuarios = s.getUsuarios();
+        if(usuarios.size()==0){
+        return mensaje;
+        }
+        mensaje = String.valueOf(usuarios.size());
+        for (Usuario usuario : usuarios) {
+            if ((usuario.getUsuario().compareTo(user) == 0) && (usuario.getPassword().compareTo(pass) == 0)) {
+                x = true;
+                return mensaje = "Usuario Aceptado";
+            }
+
+        }
+        if (x == false) {
+              return mensaje = "No se encontro usuario";
+        }
+
+
+        return mensaje;
 
     }
 
