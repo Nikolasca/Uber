@@ -27,12 +27,6 @@ public class UsuarioController{
         
     }
 
-    @RequestMapping(value = "/Hola", method = RequestMethod.POST)
-    @ResponseBody
-    public String  Test(@RequestParam("name") String name) {
-        return "Hola"+name ;
-        
-    }
     @RequestMapping(value = "/Register", method = RequestMethod.POST)
     @ResponseBody
     public String  Register(@RequestParam("name") String name, @RequestParam("pass") String pass, @RequestParam("type") String type) {
@@ -44,7 +38,7 @@ public class UsuarioController{
             user.setUsuario(name);
             user.setPassword(pass);
             s.Add(user);
-             mensaje = "Conductor Creado"+"Nombre "+name;
+             mensaje = "Conductor Creado"+"Nombre: "+name;
             return  mensaje;
 
         } else if (type.compareTo("Pasajero") == 0) {
@@ -68,6 +62,27 @@ public class UsuarioController{
         }
         return mensaje;
    
+    }
+    @RequestMapping(value = "/Login", method = RequestMethod.POST)
+    @ResponseBody
+    public String Login(@RequestParam("user") , @RequestParam("pass")){
+        String mensaje= "";
+        boolean x = false;
+        ArrayList<Usuario> usuarios = s.getUsuarios();
+        for (Usuario usuario : usuarios) {
+            if ((usuario.getUsuario().compareTo(A) == 0) && (usuario.getPassword().compareTo(B) == 0)) {
+                x = true;
+                return mensaje = "Usuario Aceptado";
+            }
+
+        }
+        if (x == false) {
+              return mensaje = "No se encontr� usuario";
+        }
+
+
+        return mensaje;
+
     }
 
 }
