@@ -70,6 +70,9 @@ public class UsuarioController{
         String mensaje= "Hola";
         boolean x = false;
         ArrayList<Usuario> usuarios = s.getUsuarios();
+        if(usuarios.size()==0){
+        return mensaje;
+        }
         mensaje = String.valueOf(usuarios.size());
         for (Usuario usuario : usuarios) {
             if ((usuario.getUsuario().compareTo(user) == 0) && (usuario.getPassword().compareTo(pass) == 0)) {
