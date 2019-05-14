@@ -44,7 +44,7 @@ public class UsuarioController{
             user.setUsuario(name);
             user.setPassword(pass);
             s.Add(user);
-             mensaje = "Conductor Creado";
+             mensaje = "Conductor Creado"+"Nombre "+name;
             return  mensaje;
 
         } else if (type.compareTo("Pasajero") == 0) {
