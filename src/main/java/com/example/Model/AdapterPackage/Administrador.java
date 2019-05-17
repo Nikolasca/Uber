@@ -13,6 +13,10 @@ public class Administrador {
     private String Usuario;
     private String Password;
     private String TipoUsuario;
+    private String nombreapellido;
+    private String id;
+    private String email;
+    private String telefono;  
     
     public String tomatuusuario() {
         return TipoUsuario;
@@ -44,6 +48,36 @@ public class Administrador {
     public void setTipoUsuario(String TipoUsuario) {
         this.TipoUsuario = TipoUsuario;
     }
-    
-            
+
+    public String getNombreapellido() {
+        return nombreapellido;
+    }
+
+    public void setNombreapellido(String nombreapellido) {
+        this.nombreapellido = nombreapellido;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    } 
 }

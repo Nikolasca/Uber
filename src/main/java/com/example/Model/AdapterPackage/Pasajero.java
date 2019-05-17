@@ -15,10 +15,16 @@ import Flyweight.FlyWeightFactory;
 public class Pasajero extends Usuario {
 
     private FlyWeightFactory factory;
+    private String usuario;
+    private String pass;
     private String tipo="Pasajero";
+    private String nombreapellido;
+    private String id;
+    private String email;
+    private String telefono;   
 
-    public Pasajero(String Usuario, String Password,int Id) {
-        super(Usuario, Password,Id);
+    public Pasajero(String Usuario, String Password, String nombreapellido, String id, String email, String telefono) {
+        super(Usuario, Password, nombreapellido, id, email, telefono);
         this.factory = new FlyWeightFactory();
     }
 
@@ -26,16 +32,12 @@ public class Pasajero extends Usuario {
         super();
     }
 
-    public Pasajero(String usuario, String password) {
-        super(usuario, password);
-    }
-
     
     @Override
     public String getTipo_Usuario() {
         return this.tipo;
     }
-
+    
     @Override
     public String Permisos() {
         return "CrearReserva,LeerReserva,ModificarLugarReserva,EliminarReserva,CrearPago,LeerPago,Consultar_Usuario,mod_Usuario,"
@@ -46,7 +48,7 @@ public class Pasajero extends Usuario {
         return this.factory;
     }
 
-    public void AnadirPago(FlyWeight i) {
+    public void AñadirPago(FlyWeight i) {
         this.factory.AgregarPago(i);
     }
 
