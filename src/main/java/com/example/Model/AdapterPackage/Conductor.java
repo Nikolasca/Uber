@@ -15,22 +15,22 @@ import Flyweight.FlyWeightFactory;
 public class Conductor extends Usuario {
 
     private FlyWeightFactory factory;
-    private String Usuario;
-    private String Password;
     private String tipo = "Conductor";
-    private String nombreapellido;
-    private String id;
-    private String email;
-    private String telefono;
+    private String nombre;
 
-    public Conductor(String Usuario, String Password, String nombreapellido, String id, String email, String telefono) {
-        super(Usuario, Password, nombreapellido, id, email, telefono);
+    public Conductor(String Usuario, String Password, int ID) {
+        super(Usuario, Password,ID);
         FlyWeightFactory factory = new FlyWeightFactory();
     }
 
     public Conductor() {
         super();
     }
+
+    public Conductor(String usuario, String password) {
+        super(usuario, password);
+    }
+    
 
 
     @Override
@@ -40,14 +40,14 @@ public class Conductor extends Usuario {
 
     @Override
     public String Permisos() {
-        return "LeerPago,CrearRuta,ModificarRuta,EliminarRuta,VerRuta,VerHorario,CerrarSesión";
+        return "LeerPago,CrearRuta,ModificarRuta,EliminarRuta,VerRuta,VerHorario,CerrarSesi�n";
     }
 
     public FlyWeightFactory getFactory() {
         return factory;
     }
 
-    public void AñadirPago(FlyWeight i) {
+    public void AnadirPago(FlyWeight i) {
         this.factory.AgregarPago(i);
 
     }
@@ -60,5 +60,24 @@ public class Conductor extends Usuario {
     @Override
     public String getPagos(String nombreC) {
          return this.factory.toStringPagosConductor(nombreC);
+         
     }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    
 }

@@ -18,11 +18,16 @@ public class Adapter extends Usuario {
     private Administrador admin;
     private FlyWeightFactory factory;
 
-    public Adapter(String Usuario, String Password, String nombreapellido, String id, String email, String telefono) {
-        super(Usuario, Password, nombreapellido, id, email, telefono);
+    public Adapter(String Usuario, String Password, int id) {
+        super(Usuario, Password, id);
         this.admin = new Administrador();
     }
 
+    public Adapter(String usuario, String password) {
+        super(usuario, password);
+    }
+
+   
     public Adapter() {
         super();
         this.admin = new Administrador();
@@ -51,7 +56,7 @@ public class Adapter extends Usuario {
     }
 
     @Override
-    public void AñadirPago(FlyWeight i) {
+    public void AnadirPago(FlyWeight i) {
         this.factory.AgregarPago(i);
     }
 
@@ -64,4 +69,5 @@ public class Adapter extends Usuario {
     public String getPagos(String nombreP) {
         return "Pagos no posibles";
     }
+
 }
