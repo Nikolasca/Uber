@@ -15,11 +15,12 @@ import servlet.Singleton;
 
 @Controller
 @RequestMapping("/servicio")
-private Singleton s = Singleton.getSingle();
+
 public class ViajeService{
-@RequestMapping(value = "/Nuevo_Viaje", method = RequestMethod.POST
-    @ResponseBody
-    public String  RegistroViaje(String punto_inicio, String punto_final, Pasajero Cliente, Conductor conductor) {
+  private Singleton s = Singleton.getSingle();
+@RequestMapping(value = "/Nuevo_Viaje", method = RequestMethod.POST)
+@ResponseBody
+   public String  RegistroViaje(String punto_inicio, String punto_final, Pasajero Cliente, Conductor conductor) {
         
 
 
