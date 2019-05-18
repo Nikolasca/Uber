@@ -15,17 +15,17 @@ import Flyweight.FlyWeightFactory;
  * @author Nikolas
  */
 public abstract class Usuario {
-    private String Usuario;
-    private String Password;
-    private String Tipo_Usuario;
+    private String usuario;
+    private String password;
+    private String tipo_Usuario;
     private String nombreapellido;
     private String id;
     private String email;
     private String telefono;  
 
     public Usuario(String Usuario, String Password, String nombreapellido, String id, String email, String telefono) {
-        this.Usuario = Usuario;
-        this.Password = Password;
+        this.usuario = Usuario;
+        this.password = Password;
         this.nombreapellido = nombreapellido;
         this.id = id;
         this.email = email;
@@ -35,7 +35,10 @@ public abstract class Usuario {
     public Usuario() {
     }
 
-  
+  public Usuario(String usuario, String password) {
+        this.usuario = usuario;
+        this.password = password;
+    }
 
     
     
@@ -53,34 +56,34 @@ public abstract class Usuario {
   // public abstract void setTipo_Usuario(String Tipo_Usuario);
 
     public String getUsuario() {
-        return Usuario;
+        return usuario;
     }
 
     public void setUsuario(String Usuario) {
-        this.Usuario = Usuario;
+        this.usuario = Usuario;
     }
 
     public String getPassword() {
-        return Password;
+        return password;
     }
 
     public void setPassword(String Password) {
-        this.Password = Password;
+        this.password = Password;
     }
 
     public String getTipo_Usuario() {
-        return Tipo_Usuario;
+        return tipo_Usuario;
     }
 
     public void setTipo_Usuario(String Tipo_Usuario) {
-        this.Tipo_Usuario = Tipo_Usuario;
+        this.tipo_Usuario = Tipo_Usuario;
     }
     
     public abstract String Permisos();
 
    public abstract FlyWeightFactory getFactory();
    
-    public abstract void AñadirPago(FlyWeight i);
+    public abstract void AnadirPago(FlyWeight i);
     public abstract String getPago(int id);
     public abstract String getPagos(String nombre);
 }
