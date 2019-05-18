@@ -30,6 +30,41 @@ public class Pasajero extends Usuario {
         super(usuario, password);
     }
 
+    @Override
+    public void setId(int id) {
+        super.setId(id); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int getId() {
+        return super.getId(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setTipo_Usuario(String Tipo_Usuario) {
+        super.setTipo_Usuario(Tipo_Usuario); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setPassword(String Password) {
+        super.setPassword(Password); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String getPassword() {
+        return super.getPassword(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setUsuario(String Usuario) {
+        super.setUsuario(Usuario); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String getUsuario() {
+        return super.getUsuario(); //To change body of generated methods, choose Tools | Templates.
+    }
+
     
     @Override
     public String getTipo_Usuario() {

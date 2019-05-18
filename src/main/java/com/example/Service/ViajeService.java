@@ -22,8 +22,6 @@ public class ViajeService{
 @ResponseBody
    public String  RegistroViaje(String punto_inicio, String punto_final, Pasajero Cliente, Conductor conductor) {
         
-
-
         return "hola" ;
         
     }

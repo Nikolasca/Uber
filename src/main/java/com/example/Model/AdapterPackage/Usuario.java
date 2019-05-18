@@ -24,6 +24,10 @@ public abstract class Usuario {
     private String usuario;
     private String password;
     private String tipo_Usuario;
+    private String nombre;
+    private int telefono;
+    private String documento;
+    private String email;
     private int id;
 
     public Usuario(String Usuario, String Password,int id) {
@@ -67,6 +71,38 @@ public abstract class Usuario {
 
     public void setTipo_Usuario(String Tipo_Usuario) {
         this.tipo_Usuario = Tipo_Usuario;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public int getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(int telefono) {
+        this.telefono = telefono;
+    }
+
+    public String getDocumento() {
+        return documento;
+    }
+
+    public void setDocumento(String documento) {
+        this.documento = documento;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public abstract String Permisos();
