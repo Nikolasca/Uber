@@ -101,6 +101,6 @@ public class Pasajero extends Usuario {
 
     @Override
     public void setEmail(String email) {
-        super.setEmail(email); = email;
+        super.setEmail(email);
     }
 }
