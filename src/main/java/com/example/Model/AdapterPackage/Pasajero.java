@@ -94,4 +94,13 @@ public class Pasajero extends Usuario {
     public String getPagos(String nombreP) {
         return this.factory.toStringPagosPasajero(nombreP);
     }
+    @Override
+    public String getEmail() {
+        return super.getEmail();
+    }
+
+    @Override
+    public void setEmail(String email) {
+        super.setEmail(email); = email;
+    }
 }

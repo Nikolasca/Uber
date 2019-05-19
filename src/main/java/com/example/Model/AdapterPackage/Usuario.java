@@ -44,11 +44,6 @@ public abstract class Usuario {
     public Usuario() {
     }
 
-   // public abstract String getUsuario();
-   // public abstract void setUsuario(String Usuario); 
-   //public abstract String getPassword();
-   //public abstract void setPassword(String Password);
-  // public abstract void setTipo_Usuario(String Tipo_Usuario);
     public String getUsuario() {
         return usuario;
     }
