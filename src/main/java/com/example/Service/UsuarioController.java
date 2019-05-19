@@ -37,6 +37,7 @@ public class UsuarioController{
             user.setTipo_Usuario(type);
             user.setUsuario(name);
             user.setPassword(pass);
+            
             s.Add(user);
              mensaje = "Conductor Creado"+"Nombre: "+name;
             return  mensaje;
@@ -47,6 +48,7 @@ public class UsuarioController{
             user.setTipo_Usuario(type);
             user.setUsuario(name);
             user.setPassword(pass);
+            user.setEmail(email);
      
             s.Add(user);
              mensaje = "Pasajero Creado";
