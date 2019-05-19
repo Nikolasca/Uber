@@ -114,5 +114,13 @@ public class Conductor extends Usuario {
         this.nombre = nombre;
     }
 
-    
+    @Override
+    public String getEmail() {
+        return super.getEmail();
+    }
+
+    @Override
+    public void setEmail(String email) {
+        super.setEmail(email);
+    }
 }

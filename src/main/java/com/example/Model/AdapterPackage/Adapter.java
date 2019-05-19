@@ -109,5 +109,13 @@ public class Adapter extends Usuario {
     public String getUsuario() {
         return super.getUsuario(); //To change body of generated methods, choose Tools | Templates.
     }
+    @Override
+    public String getEmail() {
+        return super.getEmail();
+    }
 
+    @Override
+    public void setEmail(String email) {
+        super.setEmail(email);
+    }
 }
