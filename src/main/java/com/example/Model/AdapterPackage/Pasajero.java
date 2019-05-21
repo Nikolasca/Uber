@@ -103,4 +103,13 @@ public class Pasajero extends Usuario {
     public void setEmail(String email) {
         super.setEmail(email);
     }
+    @Override
+    public String  getTelefono() {
+        return super.getTelefono();
+    }
+
+    @Override
+    public void setTelefono(String telefono) {
+        super.setTelefono(telefono);
+    }
 }

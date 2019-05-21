@@ -123,4 +123,13 @@ public class Conductor extends Usuario {
     public void setEmail(String email) {
         super.setEmail(email);
     }
+    @Override
+    public String getTelefono() {
+        return super.getEmail();
+    }
+
+    @Override
+    public void setEmail(String email) {
+        super.setEmail(email);
+    }
 }
