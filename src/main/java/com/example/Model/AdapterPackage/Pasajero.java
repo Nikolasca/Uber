@@ -112,14 +112,6 @@ public class Pasajero extends Usuario {
     public void setTelefono(int telefono) {
         super.setTelefono(telefono);
     }
-    @Override
-    public int getTelefono() {
-        return super.getTelefono();
-    }
-    @Override
-    public void setTelefono(int Telefono) {
-        super.setTelefono(Telefono);
-    }
 
     @Override
     public void setLat(String  Lat) {
