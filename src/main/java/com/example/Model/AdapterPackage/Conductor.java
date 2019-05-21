@@ -140,10 +140,12 @@ public class Conductor extends Usuario {
     public String getLat() {
         return super.getLat();
     }
+
     @Override
-    public String setLong(String  Long) {
+    public void setLong(String  Long) {
         super.setLong(Long);
     }
+    @Override
     public String getLong() {
         return super.getLong();
     }
