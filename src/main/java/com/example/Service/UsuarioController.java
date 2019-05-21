@@ -22,6 +22,8 @@ public class UsuarioController{
     userdefault.setId(s.getUsuarios().size() + 1);
     userdefault.setUsuario("Nikolas");
     userdefault.setPassword("123");
+    userdefault.setEmail("123");
+    userdefault.setTipo_Usuario("Pasajero");
 
     
     @RequestMapping(value = "/{name}", method = RequestMethod.GET)
