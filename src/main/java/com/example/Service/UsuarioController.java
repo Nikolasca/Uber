@@ -18,6 +18,10 @@ import servlet.Singleton;
 @RequestMapping("/servicio")
 public class UsuarioController{
     private Singleton s = Singleton.getSingle();
+    Usuario userdefault = new Pasajero();
+    userdefault.setId(s.getUsuarios().size() + 1);
+    userdefault.setUsuario("Nikolas");
+    userdefault.setPassword("123");
 
     
     @RequestMapping(value = "/{name}", method = RequestMethod.GET)
