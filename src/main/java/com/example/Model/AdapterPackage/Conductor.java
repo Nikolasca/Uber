@@ -125,11 +125,8 @@ public class Conductor extends Usuario {
     }
     @Override
     public int getTelefono() {
-        return super.getEmail();
+        return super.getTelefono();
     }
 
-    @Override
-    public void setEmail(String email) {
-        super.setEmail(email);
-    }
+
 }
