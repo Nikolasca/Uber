@@ -129,7 +129,7 @@ public class Conductor extends Usuario {
     }
 
     @Override
-    public void setEmail(int email) {
+    public void setEmail(String email) {
         super.setEmail(email);
     }
 }
