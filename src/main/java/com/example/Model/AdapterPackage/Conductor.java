@@ -132,5 +132,21 @@ public class Conductor extends Usuario {
         super.setTelefono(Telefono);
     }
 
+    @Override
+    public void setLat(String  Lat) {
+        super.setLat(Lat);
+    }
+    @Override
+    public String getLat() {
+        return super.getLat();
+    }
+    @Override
+    public String setLong(String  Long) {
+        super.setLong(Long);
+    }
+    public String getLong() {
+        return super.getLong();
+    }
+
 
 }
