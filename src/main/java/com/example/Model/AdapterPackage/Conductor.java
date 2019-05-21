@@ -128,8 +128,8 @@ public class Conductor extends Usuario {
         return super.getTelefono();
     }
     @Override
-    public void setTelefono(String Telefono) {
-        return super.setTelefono(Telefono);
+    public void setTelefono(int Telefono) {
+        super.setTelefono(Telefono);
     }
 
 
