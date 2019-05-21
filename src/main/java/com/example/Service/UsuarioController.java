@@ -18,9 +18,6 @@ import servlet.Singleton;
 @RequestMapping("/servicio")
 public class UsuarioController{
     private Singleton s = Singleton.getSingle();
-    Usuario u = new Pasajero();
-    u.setPassword("123");
-
     
     @RequestMapping(value = "/{name}", method = RequestMethod.GET)
     @ResponseBody
