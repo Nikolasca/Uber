@@ -127,6 +127,10 @@ public class Conductor extends Usuario {
     public int getTelefono() {
         return super.getTelefono();
     }
+    @Override
+    public void setTelefono(String Telefono) {
+        return super.setTelefono(Telefono);
+    }
 
 
 }
