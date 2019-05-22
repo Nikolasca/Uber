@@ -28,7 +28,7 @@ public class UsuarioController{
 
     @RequestMapping(value = "/Register", method = RequestMethod.POST)
     @ResponseBody
-    public String  Register(@RequestParam("name") String name, @RequestParam("email") String email, @RequestParam("telefono") String telefono, @RequestParam("pass") String pass, @RequestParam("type") String type) {
+    public String  Register(@RequestParam("name") String name, @RequestParam("email") String email, @RequestParam("telefono") int telefono, @RequestParam("pass") String pass, @RequestParam("type") String type) {
         String mensaje = "";
         if (type.compareTo("Conductor") == 0) {
             Usuario user = new Conductor();
