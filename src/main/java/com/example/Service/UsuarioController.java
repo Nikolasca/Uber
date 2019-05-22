@@ -92,6 +92,24 @@ public class UsuarioController{
         return mensaje;
 
     }
+     
+    @RequestMapping(value = "/Conductores", method = RequestMethod.GET)
+    @ResponseBody
+    public ArrayList <Usuario> TraerConductores (){
+        ArrayList <Usuario> c = new ArrayList();
+        ArrayList<Usuario> usuarios = s.getUsuarios();
+        for (Usuario usuario : usuarios) {
+            if(usuario.getTipo_Usuario().compareTo("Conductor")==0){
+               c.add(usuario);    
+            }
+            
+        }
+        return c;
+
+    }
+
+
+}
 
 }
     
