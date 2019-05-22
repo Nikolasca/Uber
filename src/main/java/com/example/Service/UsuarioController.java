@@ -113,7 +113,7 @@ public class UsuarioController{
     @ResponseBody
     public String ActualizarLocation (@RequestParam("id") int ID, @RequestParam("Lat") String Lat, @RequestParam("Long") String Long){
         s.AnadirCoordenadas(ID,Lat,Long);
-        return "Posición Actualizada";
+        return "Posicion Actualizada";
     }
 
 
