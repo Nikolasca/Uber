@@ -109,6 +109,12 @@ public class UsuarioController{
         return c;
 
     }
+    @RequestMapping(value = "/Conductores", method = RequestMethod.POST)
+    @ResponseBody
+    public String ActualizarLocation (@RequestParam("id") int ID, @RequestParam("Lat") String Lat, @RequestParam("Long") String Long){
+        s.AnadirCoordenadas(ID,Lat,Long);
+        return "Posición Actualizada";
+    }
 
 
 }

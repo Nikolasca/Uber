@@ -54,6 +54,16 @@ public class Singleton {
         return user;
     }
 
+    public void AnadirCoordenadas(int id, String Lat, String Long){
+        for (Usuario usuario : usuarios) {
+            if (id == usuario.getId()) {
+                usuario.setLat(Lat);
+                usuario.setLong(Long);
 
+            }
+
+    }
+
+}
 }
 
