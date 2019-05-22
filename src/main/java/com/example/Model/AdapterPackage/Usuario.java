@@ -29,8 +29,8 @@ public abstract class Usuario {
     private String documento;
     private String email;
     private int id;
-    private String Lat;
-    private String Long;
+    private double Lat;
+    private doubule Long;
 
     public Usuario(String Usuario, String Password,int id) {
         this.usuario = Usuario;
@@ -120,19 +120,19 @@ public abstract class Usuario {
         this.id = id;
     }
 
-    public String getLat() {
+    public double getLat() {
         return Lat;
     }
 
-    public void setLat(String Lat) {
+    public void setLat(double Lat) {
         this.Lat = Lat;
     }
 
-    public String getLong() {
+    public double getLong() {
         return Long;
     }
 
-    public void setLong(String Long) {
+    public void setLong(double Long) {
         this.Long = Long;
     }
 
