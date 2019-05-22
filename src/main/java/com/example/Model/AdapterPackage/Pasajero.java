@@ -114,20 +114,20 @@ public class Pasajero extends Usuario {
     }
 
     @Override
-    public void setLat(String  Lat) {
+    public void setLat(double  Lat) {
         super.setLat(Lat);
     }
     @Override
-    public String getLat() {
+    public double getLat() {
         return super.getLat();
     }
 
     @Override
-    public void setLong(String  Long) {
+    public void setLong(double  Long) {
         super.setLong(Long);
     }
     @Override
-    public String getLong() {
+    public double getLong() {
         return super.getLong();
     }
 

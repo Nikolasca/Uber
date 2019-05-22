@@ -30,7 +30,7 @@ public abstract class Usuario {
     private String email;
     private int id;
     private double Lat;
-    private doubule Long;
+    private double Long;
 
     public Usuario(String Usuario, String Password,int id) {
         this.usuario = Usuario;
