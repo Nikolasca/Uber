@@ -37,6 +37,7 @@ public class UsuarioController{
             user.setUsuario(name);
             user.setPassword(pass);
             user.setEmail(email);
+            user.setTelefono(telefono);
             s.Add(user);
              mensaje = "Conductor Creado"+"Nombre: "+name;
             return  mensaje;
@@ -48,7 +49,7 @@ public class UsuarioController{
             user.setUsuario(name);
             user.setPassword(pass);
             user.setEmail(email);
-     
+            user.setTelefono(telefono);
             s.Add(user);
              mensaje = "Pasajero Creado";
             return  mensaje;
@@ -59,6 +60,7 @@ public class UsuarioController{
             user.setUsuario(name);
             user.setPassword(pass);
             user.setEmail(email);
+            user.setTelefono(telefono);
             s.Add(user);
             mensaje = "Administrador Creado";
             return  mensaje;
