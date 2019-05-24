@@ -19,12 +19,6 @@ import servlet.Singleton;
 public class UsuarioController{
     private Singleton s = Singleton.getSingle();
     
-    @RequestMapping(value = "/{name}", method = RequestMethod.GET)
-    @ResponseBody
-    public String  Hola(@PathVariable("name") String name) {
-        return name ;
-        
-    }
 
     @RequestMapping(value = "/Register", method = RequestMethod.POST)
     @ResponseBody
