@@ -13,7 +13,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.stereotype.*;
 import servlet.Singleton;
-
+import Proxy.Proxy;
 @Controller
 @RequestMapping("/servicio")
 public class UsuarioController{
