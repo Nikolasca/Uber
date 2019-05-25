@@ -18,6 +18,10 @@ import servlet.Singleton;
 @RequestMapping("/servicio")
 public class UsuarioController{
     private Singleton s = Singleton.getSingle();
+
+    public UsuarioController() {
+        LALALA();
+    }
    
    
 
