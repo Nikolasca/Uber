@@ -13,23 +13,16 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.stereotype.*;
 import servlet.Singleton;
-
+import Proxy.Proxy;
 @Controller
 @RequestMapping("/servicio")
 public class UsuarioController{
     private Singleton s = Singleton.getSingle();
-
-    
-    @RequestMapping(value = "/{name}", method = RequestMethod.GET)
-    @ResponseBody
-    public String  Hola(@PathVariable("name") String name) {
-        return name ;
-        
-    }
+    private Proxy proxy = new Proxy();
 
     @RequestMapping(value = "/Register", method = RequestMethod.POST)
     @ResponseBody
-    public String  Register(@RequestParam("name") String name, @RequestParam("pass") String pass, @RequestParam("type") String type) {
+    public String  Register(@RequestParam("name") String name, @RequestParam("email") String email, @RequestParam("telefono") int telefono, @RequestParam("pass") String pass, @RequestParam("type") String type) {
         String mensaje = "";
         if (type.compareTo("Conductor") == 0) {
             Usuario user = new Conductor();
@@ -37,6 +30,10 @@ public class UsuarioController{
             user.setTipo_Usuario(type);
             user.setUsuario(name);
             user.setPassword(pass);
+            user.setEmail(email);
+            user.setTelefono(telefono);
+
+            LALALA();
             s.Add(user);
              mensaje = "Conductor Creado"+"Nombre: "+name;
             return  mensaje;
@@ -47,6 +44,8 @@ public class UsuarioController{
             user.setTipo_Usuario(type);
             user.setUsuario(name);
             user.setPassword(pass);
+            user.setEmail(email);
+            user.setTelefono(telefono);
             s.Add(user);
              mensaje = "Pasajero Creado";
             return  mensaje;
@@ -56,6 +55,8 @@ public class UsuarioController{
             user.setTipo_Usuario(type);
             user.setUsuario(name);
             user.setPassword(pass);
+            user.setEmail(email);
+            user.setTelefono(telefono);
             s.Add(user);
             mensaje = "Administrador Creado";
             return  mensaje;
@@ -77,7 +78,7 @@ public class UsuarioController{
         for (Usuario usuario : usuarios) {
             if ((usuario.getUsuario().compareTo(user) == 0) && (usuario.getPassword().compareTo(pass) == 0)) {
                 x = true;
-                return mensaje = "Usuario Aceptado,"+usuario.getUsuario()+","+usuario.getPassword()+","+usuario.getTipo_Usuario()+",";
+                return mensaje = "Usuario Aceptado,"+usuario.getUsuario()+","+usuario.getPassword()+","+usuario.getTipo_Usuario()+","+usuario.getEmail()+","+usuario.getId()+",";
             }
 
         }
@@ -89,6 +90,48 @@ public class UsuarioController{
         return mensaje;
 
     }
+     
+    @RequestMapping(value = "/Conductores", method = RequestMethod.GET)
+    @ResponseBody
+    public ArrayList <Usuario> TraerConductores (){
+        ArrayList <Usuario> c = new ArrayList();
+        ArrayList<Usuario> usuarios = s.getUsuarios();
+        for (Usuario usuario : usuarios) {
+            if(usuario.getTipo_Usuario().compareTo("Conductor")==0){
+               c.add(usuario);    
+            }
+            
+        }
+        return c;
 
+    }
+    @RequestMapping(value = "/UpdateL", method = RequestMethod.POST)
+    @ResponseBody
+    public String ActualizarLocation (@RequestParam("id") int ID, @RequestParam("Lat") double Lat, @RequestParam("Long") double Long){
+        s.AnadirCoordenadas(ID,Lat,Long);
+        return "Posicion Actualizada";
+    }
+
+    public void LALALA(){
+        Usuario so = new Conductor();
+        so.setUsuario("Prueba");
+        so.setTipo_Usuario("Conductor");
+        so.setLat(37.41745719539887);
+        so.setLong(-122.084046);
+        s.Add(so);
+    }
+    
+    @RequestMapping(value = "/Acceso", method = RequestMethod.POST)
+    @ResponseBody
+    public String AccesoGeneral(String Acceso) throws NoSuchMethodException{
+
+        String res = proxy.llamarMetodoGeneral(Acceso);
+        return res;
+
+
+      
+    }
 }
+
+
     

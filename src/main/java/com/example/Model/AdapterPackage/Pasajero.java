@@ -30,6 +30,41 @@ public class Pasajero extends Usuario {
         super(usuario, password);
     }
 
+    @Override
+    public void setId(int id) {
+        super.setId(id); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int getId() {
+        return super.getId(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setTipo_Usuario(String Tipo_Usuario) {
+        super.setTipo_Usuario(Tipo_Usuario); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setPassword(String Password) {
+        super.setPassword(Password); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String getPassword() {
+        return super.getPassword(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setUsuario(String Usuario) {
+        super.setUsuario(Usuario); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String getUsuario() {
+        return super.getUsuario(); //To change body of generated methods, choose Tools | Templates.
+    }
+
     
     @Override
     public String getTipo_Usuario() {
@@ -59,4 +94,41 @@ public class Pasajero extends Usuario {
     public String getPagos(String nombreP) {
         return this.factory.toStringPagosPasajero(nombreP);
     }
+    @Override
+    public String getEmail() {
+        return super.getEmail();
+    }
+
+    @Override
+    public void setEmail(String email) {
+        super.setEmail(email);
+    }
+    @Override
+    public int  getTelefono() {
+        return super.getTelefono();
+    }
+
+    @Override
+    public void setTelefono(int telefono) {
+        super.setTelefono(telefono);
+    }
+
+    @Override
+    public void setLat(double  Lat) {
+        super.setLat(Lat);
+    }
+    @Override
+    public double getLat() {
+        return super.getLat();
+    }
+
+    @Override
+    public void setLong(double  Long) {
+        super.setLong(Long);
+    }
+    @Override
+    public double getLong() {
+        return super.getLong();
+    }
+
 }
