@@ -123,7 +123,10 @@ public class UsuarioController{
     
     @RequestMapping(value = "/Acceso", method = RequestMethod.POST)
     @ResponseBody
-    public void AccesoGeneral(String Acceso){
+    public String AccesoGeneral(String Acceso) throws NoSuchMethodException{
+
+        String res = proxy.llamarMetodoGeneral(String);
+        return res;
 
 
       
