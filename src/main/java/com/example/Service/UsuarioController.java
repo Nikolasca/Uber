@@ -18,6 +18,11 @@ import servlet.Singleton;
 @RequestMapping("/servicio")
 public class UsuarioController{
     private Singleton s = Singleton.getSingle();
+    Usuario s = new Conductor();
+    s.setUsuario("Prueba");
+    s.setTipo_Usuario("Conductor");
+    s.setLat(37.41745719539887);
+    s.setLong(-122.084046);
     
 
     @RequestMapping(value = "/Register", method = RequestMethod.POST)
