@@ -114,7 +114,7 @@ public class UsuarioController{
         return "Posicion Actualizada";
     }
     public static void main(String[] args) {
-        SpringApplication.run(DemoApplication.class, args);
+        SpringApplication.run(UsuarioController.class, args);
         Usuario so = new Conductor();
         so.setUsuario("Prueba");
         so.setTipo_Usuario("Conductor");
