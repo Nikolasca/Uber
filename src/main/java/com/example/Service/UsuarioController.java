@@ -18,7 +18,8 @@ import servlet.Singleton;
 @RequestMapping("/servicio")
 public class UsuarioController{
     private Singleton s = Singleton.getSingle();
-    LALALA();
+   
+   
 
     
 
@@ -111,16 +112,16 @@ public class UsuarioController{
         s.AnadirCoordenadas(ID,Lat,Long);
         return "Posicion Actualizada";
     }
-
-    public void LALALA(){
+    public static void main(String[] args) {
+        SpringApplication.run(DemoApplication.class, args);
         Usuario so = new Conductor();
         so.setUsuario("Prueba");
         so.setTipo_Usuario("Conductor");
         so.setLat(37.41745719539887);
         so.setLong(-122.084046);
         s.Add(so);
-
-    }
+        
+      }
 }
 
 
