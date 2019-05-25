@@ -12,7 +12,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.stereotype.*;
-import org.springframework.boot.SpringApplication;
 import servlet.Singleton;
 
 @Controller
@@ -113,16 +112,15 @@ public class UsuarioController{
         s.AnadirCoordenadas(ID,Lat,Long);
         return "Posicion Actualizada";
     }
-    public static void main(String[] args) {
-        SpringApplication.run(UsuarioController.class, args);
+
+    public void LALALA(){
         Usuario so = new Conductor();
         so.setUsuario("Prueba");
         so.setTipo_Usuario("Conductor");
         so.setLat(37.41745719539887);
         so.setLong(-122.084046);
         s.Add(so);
-        
-      }
+    }
 }
 
 

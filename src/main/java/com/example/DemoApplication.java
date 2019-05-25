@@ -27,5 +27,8 @@ public class DemoApplication {
     return "Hello from the other side -- Otra Prueba23";
   }
 
-  
+  public static void main(String[] args) {
+    SpringApplication.run(DemoApplication.class, args);
+    
+  }
 }
