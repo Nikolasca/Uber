@@ -125,7 +125,7 @@ public class UsuarioController{
     @ResponseBody
     public String AccesoGeneral(String Acceso) throws NoSuchMethodException{
 
-        String res = proxy.llamarMetodoGeneral(String);
+        String res = proxy.llamarMetodoGeneral(Acceso);
         return res;
 
 
