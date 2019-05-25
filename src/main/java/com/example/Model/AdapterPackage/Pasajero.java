@@ -13,7 +13,7 @@ import Flyweight.FlyWeightFactory;
  * @author Nikolas
  */
 public class Pasajero extends Usuario {
-
+//Prueba
     private FlyWeightFactory factory;
     private String tipo="Pasajero";
 
