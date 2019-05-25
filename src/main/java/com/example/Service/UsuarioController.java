@@ -19,14 +19,6 @@ import servlet.Singleton;
 public class UsuarioController{
     private Singleton s = Singleton.getSingle();
 
-    public UsuarioController() {
-        LALALA();
-    }
-   
-   
-
-    
-
     @RequestMapping(value = "/Register", method = RequestMethod.POST)
     @ResponseBody
     public String  Register(@RequestParam("name") String name, @RequestParam("email") String email, @RequestParam("telefono") int telefono, @RequestParam("pass") String pass, @RequestParam("type") String type) {
@@ -39,6 +31,8 @@ public class UsuarioController{
             user.setPassword(pass);
             user.setEmail(email);
             user.setTelefono(telefono);
+
+            LALALA();
             s.Add(user);
              mensaje = "Conductor Creado"+"Nombre: "+name;
             return  mensaje;
