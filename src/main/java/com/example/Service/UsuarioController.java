@@ -18,6 +18,7 @@ import servlet.Singleton;
 @RequestMapping("/servicio")
 public class UsuarioController{
     private Singleton s = Singleton.getSingle();
+    private Proxy proxy = new Proxy();
 
     @RequestMapping(value = "/Register", method = RequestMethod.POST)
     @ResponseBody
@@ -118,6 +119,14 @@ public class UsuarioController{
         so.setLat(37.41745719539887);
         so.setLong(-122.084046);
         s.Add(so);
+    }
+    
+    @RequestMapping(value = "/Acceso", method = RequestMethod.POST)
+    @ResponseBody
+    public void AccesoGeneral(String Acceso){
+
+
+      
     }
 }
 
