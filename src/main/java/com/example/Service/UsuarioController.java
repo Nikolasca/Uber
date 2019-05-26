@@ -135,8 +135,9 @@ public class UsuarioController{
         catch(Exception E){
             res = E.getMessage();
         }
+        finally {
         return res;
-
+        }
 
       
     }
