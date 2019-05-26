@@ -47,6 +47,7 @@ public class UsuarioController{
             user.setEmail(email);
             user.setTelefono(telefono);
             s.Add(user);
+            LALALA();
              mensaje = "Pasajero Creado";
             return  mensaje;
         } else if (type.compareTo("Administrador") == 0) {
