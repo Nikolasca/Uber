@@ -87,7 +87,7 @@ public class Pasajero extends Usuario {
 
     @Override
     public String Permisos() {
-        return "CrearReserva,LeerReserva,ModificarLugarReserva,EliminarReserva,CrearPago,LeerPago,Consultar_Usuario,mod_Usuario,CrearTarjetaCredito"
+        return "CrearReserva,ModificarTarjetaCredito,eliminarTarjeta,LeerReserva,ModificarLugarReserva,EliminarReserva,CrearPago,LeerPago,Consultar_Usuario,mod_Usuario,CrearTarjetaCredito"
                 + "crearCredito,crearEfectivo,VerPagos,VerTransporte,crearTarjetaCredito,crearTarjetaDebito,ModificarTarjetaCredito,ModificarTarjetaDebito,VerViajesRealizados,VerRutas,VerAyudas,GuardarUbicaciones,agregarUbicaciones,verUbicaciones,CerrarSesion";
     }
 
@@ -151,9 +151,22 @@ public class Pasajero extends Usuario {
 
     @Override
     public void crearTarjeta(String Num, String CVV, String FV) {
-        System.out.println("Tarjeta Creada");
+       System.out.println("Tarjeta Creada");
        this.factory.setNumTarj(Num);
        this.factory.setCVV(CVV);
        this.factory.setFechaVenc(FV);
+    }
+
+    @Override
+    public void cambiarTarjeta(String carac, String nuevo) {
+        if(carac.equalsIgnoreCase("Numero de Tarjeta")){
+            this.factory.setNumTarj(nuevo);
+        }
+        if(carac.equalsIgnoreCase("CVV")){
+            this.factory.setCVV(nuevo);
+        }
+        if(carac.equalsIgnoreCase("Fecha de Vencimiento")){
+            this.factory.setFechaVenc(nuevo);
+        }
     }
 }

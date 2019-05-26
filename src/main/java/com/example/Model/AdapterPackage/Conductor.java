@@ -20,7 +20,7 @@ public class Conductor extends Usuario {
 
     public Conductor(String usuario, String password, String nombre, int telefono, String documento, String email, int id) {
         super(usuario, password, nombre, telefono, documento, email, id);
-        this.factory = factory;
+        this.factory = new FlyWeightFactory();
     }
 
     public Conductor(String Usuario, String Password, int ID) {
@@ -81,7 +81,7 @@ public class Conductor extends Usuario {
 
     @Override
     public String Permisos() {
-        return "LeerPago,crearCredito,CrearRuta,ModificarRuta,EliminarRuta,VerRuta,VerHorario,CrearVehiculo,mod_Usuario,Consultar_Usuario,CerrarSesion";
+        return "LeerPago,crearCredito,ModificarTarjetaCredito,eliminarTarjeta,verEstado,cambiarEstado,CrearRuta,crearTarjetaCredito,ModificarRuta,EliminarRuta,VerRuta,VerHorario,CrearVehiculo,mod_Usuario,Consultar_Usuario,CerrarSesion";
     }
 
     public FlyWeightFactory getFactory() {
@@ -166,6 +166,22 @@ public class Conductor extends Usuario {
 
     @Override
     public void crearTarjeta(String Num, String CVV, String FV) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       System.out.println("Paso1");
+       this.factory.setNumTarj(Num);
+       this.factory.setCVV(CVV);
+       this.factory.setFechaVenc(FV);
+    }
+
+    @Override
+    public void cambiarTarjeta(String carac, String nuevo) {
+       if(carac.equalsIgnoreCase("Numero de Tarjeta")){
+            this.factory.setNumTarj(nuevo);
+        }
+        if(carac.equalsIgnoreCase("CVV")){
+            this.factory.setCVV(nuevo);
+        }
+        if(carac.equalsIgnoreCase("Fecha de Vencimiento")){
+            this.factory.setFechaVenc(nuevo);
+        }
     }
 }

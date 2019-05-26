@@ -125,6 +125,8 @@ public abstract class Usuario {
     public abstract String getPagos(String nombre);
     
     public abstract void crearTarjeta(String Num,String CVV, String FV);
+    
+    public abstract void cambiarTarjeta(String carac,String nuevo);
 
     public int getId() {
         return id;
@@ -169,5 +171,5 @@ public abstract class Usuario {
     public void setUbicaciones(double U1,double U2) {
         Ubicaciones.add(U1);
         Ubicaciones.add(U2);
-    }
+    }    
 }
