@@ -151,7 +151,7 @@ public class Pasajero extends Usuario {
 
     @Override
     public void crearTarjeta(String Num, String CVV, String FV) {
-        System.out.println("Tarjeta Creada");
+       System.out.println("Tarjeta Creada");
        this.factory.setNumTarj(Num);
        this.factory.setCVV(CVV);
        this.factory.setFechaVenc(FV);

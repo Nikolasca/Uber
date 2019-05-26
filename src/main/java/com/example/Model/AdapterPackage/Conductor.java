@@ -20,7 +20,7 @@ public class Conductor extends Usuario {
 
     public Conductor(String usuario, String password, String nombre, int telefono, String documento, String email, int id) {
         super(usuario, password, nombre, telefono, documento, email, id);
-        this.factory = factory;
+        this.factory = new FlyWeightFactory();
     }
 
     public Conductor(String Usuario, String Password, int ID) {
@@ -166,6 +166,9 @@ public class Conductor extends Usuario {
 
     @Override
     public void crearTarjeta(String Num, String CVV, String FV) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       System.out.println("Tarjeta Creada");
+       this.factory.setNumTarj(Num);
+       this.factory.setCVV(CVV);
+       this.factory.setFechaVenc(FV);
     }
 }
