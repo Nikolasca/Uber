@@ -118,4 +118,12 @@ public class Adapter extends Usuario {
     public void setEmail(String email) {
         super.setEmail(email);
     }
+    @Override
+    public int getTelefono() {
+        return telefono;
+    }
+    @Override
+    public void setTelefono(int telefono) {
+        this.telefono = telefono;
+    }
 }
