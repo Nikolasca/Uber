@@ -79,7 +79,7 @@ public class UsuarioController{
         for (Usuario usuario : usuarios) {
             if ((usuario.getUsuario().compareTo(user) == 0) && (usuario.getPassword().compareTo(pass) == 0)) {
                 x = true;
-                return mensaje = "Usuario Aceptado,"+usuario.getUsuario()+","+usuario.getPassword()+","+usuario.getTipo_Usuario()+","+usuario.getEmail()+","+usuario.getId()+",";
+                return mensaje = "UsuarioAceptado,"+usuario.getUsuario()+","+usuario.getPassword()+","+usuario.getTipo_Usuario()+","+usuario.getEmail()+","+usuario.getId()+",";
             }
 
         }
