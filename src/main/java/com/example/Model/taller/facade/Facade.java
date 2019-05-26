@@ -122,7 +122,7 @@ public class Facade {
                     
                 }
                 if (Accion.equals("Consultar_Usuario")) {
-                    x = Consultar_Usuario(para[0]);
+                    x = Consultar_Usuario(para[0], para[1]);
                     j = parts.length;
                 }
                 if(Accion.equals("verEstado")){
@@ -269,10 +269,10 @@ public class Facade {
         }
     }
 
-    public String Consultar_Usuario(String User) {
+    public String Consultar_Usuario(String User, String Pass) {
         String info = "";
         for (int i = 0; i < componentes.size(); i++) {
-            if (componentes.get(i).getUsuario().equalsIgnoreCase(User)) {
+            if (componentes.get(i).getUsuario().equalsIgnoreCase(User)&& componentes.get(i).getPassword().equalsIgnoreCase(Pass))  {
                 if (componentes.get(i).getTipo_Usuario().equalsIgnoreCase("Administrador")) {
                     info = componentes.get(i).getUsuario() + "," + componentes.get(i).getPassword() + "," + componentes.get(i).getTipo_Usuario() + ",";
                 } else {
