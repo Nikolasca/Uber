@@ -146,7 +146,7 @@ public class UsuarioController{
 
        proxy.crearUsuario(nombre, pass, tipo,nombreCompleto,telefono,documento,email);
         
-       return("Se creo el usuario");
+       return "Se creo el usuario";
 
 
       
