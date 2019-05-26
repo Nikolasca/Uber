@@ -97,6 +97,14 @@ public class Facade {
                    CrearTarjetaCredito(para[0],para[1],para[2],para[3]);
                     j = parts.length;
                 }
+                if (Accion.equals("ModificarTarjetaCredito")) {
+                     ModificarTarjetaCredito(para[0], para[1], para[2]);
+                    j = parts.length;
+                }
+                if(Accion.equals("eliminarTarjeta")){
+                    eliminarTarjeta(para[0]);
+                    j = parts.length;
+                }
                 if (Accion.equals("Crear_Usuario")) {
                     if (para.length == 4) {
                         Crear_Usuario(para[0], para[1], para[2], Integer.parseInt(para[3]));
@@ -110,9 +118,13 @@ public class Facade {
                     x = Consultar_Usuario(para[0]);
                     j = parts.length;
                 }
-                if (Accion.equals("Consultar_UsuarioId")) {
-                    x = ConsultarIdUsuario(Integer.parseInt(para[0]));
-                    j = parts.length;
+                if(Accion.equals("verEstado")){
+                    x=verEstado(para[0]);
+                    j=parts.length;
+                }
+                if(Accion.equals("cambiarEstado")){
+                    mod_Usuario(para[0],"estado",para[1]);
+                    j=parts.length;
                 }
                 if (Accion.equals("eliminar_Usuario")) {
                     eliminar__Usuario(para[0], para[1]);
@@ -192,10 +204,6 @@ public class Facade {
                     x = leerEoC(para[0], Integer.parseInt(para[1]));
                     j = parts.length;
                 }
-                if (Accion.equals("leerEoC")) {
-                    x = leerEoC(para[0], Integer.parseInt(para[1]));
-                    j = parts.length;
-                }
             }
         } catch (IllegalAccessException ex) {
             Logger.getLogger(Facade.class.getName()).log(Level.SEVERE, null, ex);
@@ -207,7 +215,8 @@ public class Facade {
         return x;
     }
 
-    public void Crear_Usuario(String User, String pass, String Tipo, String nombreCompleto, int telefono, String documento, String email, int id) {
+    public void Crear_Usuario(String User, String pass, String Tipo, String nombreCompleto, int telefono, String documento, String email) {
+        int id = componentes.size() + 1;
         if (Tipo.equals("Pasajero")) {
             Usuario usuario = new Pasajero(User, pass, nombreCompleto, telefono, documento, email, id);
             usuario.setTipo_Usuario(Tipo);
@@ -221,7 +230,8 @@ public class Facade {
         }
     }
 
-    public void Crear_Usuario(String User, String pass, String Tipo, int id) {
+    public void Crear_Usuario(String User, String pass, String Tipo) {
+        int id = componentes.size() + 1;
         if (Tipo.equals("Pasajero")) {
             Usuario usuario = new Pasajero(User, pass, id);
             usuario.setTipo_Usuario(Tipo);
@@ -243,21 +253,6 @@ public class Facade {
         String info = "";
         for (int i = 0; i < componentes.size(); i++) {
             if (componentes.get(i).getUsuario().equalsIgnoreCase(User)) {
-                if (componentes.get(i).getTipo_Usuario().equalsIgnoreCase("Administrador")) {
-                    info = componentes.get(i).getUsuario() + "," + componentes.get(i).getPassword() + "," + componentes.get(i).getTipo_Usuario() + ",";
-                } else {
-                    info = componentes.get(i).getUsuario() + "," + componentes.get(i).getPassword() + "," + componentes.get(i).getTipo_Usuario() + "," + componentes.get(i).getNombre() + ","
-                            + componentes.get(i).getTelefono() + "," + componentes.get(i).getDocumento() + "," + componentes.get(i).getEmail() + ",";
-                }
-            }
-        }
-        return info;
-    }
-
-    public String ConsultarIdUsuario(int id) {
-        String info = "";
-        for (int i = 0; i < componentes.size(); i++) {
-            if (componentes.get(i).getId() == id) {
                 if (componentes.get(i).getTipo_Usuario().equalsIgnoreCase("Administrador")) {
                     info = componentes.get(i).getUsuario() + "," + componentes.get(i).getPassword() + "," + componentes.get(i).getTipo_Usuario() + ",";
                 } else {
@@ -297,6 +292,8 @@ public class Facade {
             componentes.get(a).setTelefono(Integer.parseInt(nuevo));
         } else if (carac.equalsIgnoreCase("nombre")) {
             componentes.get(a).setNombre(nuevo);
+        }else if (carac.equalsIgnoreCase("estado")) {
+            componentes.get(a).setEstado(nuevo);
         }
     }
 
@@ -305,6 +302,11 @@ public class Facade {
         FlyWeight F = FF.Getpago(id);
         for (int i = 0; i < componentes.size(); i++) {
             if (componentes.get(i).getUsuario().equalsIgnoreCase(nombrePasajero)) {
+                for (int j = 0; j < componentes.size(); j++) {
+                    if (componentes.get(j).getUsuario().equalsIgnoreCase(nombreConductor)) {
+                        componentes.get(i).getFactory().setNumTarjD(componentes.get(j).getFactory().getNumTarj());
+                    }
+                }
                 componentes.get(i).getFactory().CrearPagoTarjeta(id, nombrePasajero, nombreConductor, monto);
             }
         }
@@ -449,5 +451,27 @@ public class Facade {
             }
         }
     }
-
+    public void ModificarTarjetaCredito(String nombreU,String caracteristica, String nuevo){
+        for (int i = 0; i < componentes.size(); i++) {
+            if (componentes.get(i).getUsuario().equalsIgnoreCase(nombreU)) {
+                componentes.get(i).cambiarTarjeta(caracteristica, nuevo);
+            }
+        }
+    }
+    public void eliminarTarjeta(String nombreU){
+        for (int i = 0; i < componentes.size(); i++) {
+            if (componentes.get(i).getUsuario().equalsIgnoreCase(nombreU)) {
+                componentes.get(i).crearTarjeta("", "", "");
+            }
+        }
+    }
+    public String verEstado(String nombreU){
+        String state=""; 
+        for (int i = 0; i < componentes.size(); i++) {
+            if (componentes.get(i).getUsuario().equalsIgnoreCase(nombreU)) {
+                state=componentes.get(i).getEstado();
+            }
+        }
+        return state;
+    }
 }
