@@ -116,7 +116,7 @@ public class Facade {
                 }
                 if (Accion.equals("Crear_Usuario")) {
                     
-                        Crear_Usuario(para[0], para[1], para[2], Integer.parseInt(para[3]),para[4], para[5], Integer.parseInt(para[6]));
+                        Crear_Usuario(para[0], para[1], para[2], para[3],Integer.parseInt(para[4]), para[5], para[6]);
                         x="ok";
                         j = parts.length;
                     
