@@ -276,8 +276,8 @@ public class Facade {
                 if (componentes.get(i).getTipo_Usuario().equalsIgnoreCase("Administrador")) {
                     info = componentes.get(i).getUsuario() + "," + componentes.get(i).getPassword() + "," + componentes.get(i).getTipo_Usuario() + ",";
                 } else {
-                    info = "UsuarioAceptado,"+componentes.get(i).getUsuario() + "," + componentes.get(i).getPassword() + "," + componentes.get(i).getTipo_Usuario() + ","
-                            + componentes.get(i).getTelefono()  + "," + componentes.get(i).getEmail() + ",";
+                    info = "UsuarioAceptadoXX"+componentes.get(i).getUsuario() + "XX" + componentes.get(i).getPassword() + "XX" + componentes.get(i).getTipo_Usuario() + "XX"
+                            + componentes.get(i).getTelefono()  + "XX" + componentes.get(i).getEmail() + "XX";
                 }
             }
         }
