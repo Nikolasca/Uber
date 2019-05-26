@@ -14,6 +14,10 @@ import java.util.ArrayList;
 public class FlyWeightFactory {
 
     private ArrayList<FlyWeight> Fly = new ArrayList<FlyWeight>();
+    private String NumTarj="";
+    private String CVV="";
+    private String fechaVenc="";
+    private String NumTarjD="";
 
     public FlyWeightFactory() {
     }
@@ -91,8 +95,8 @@ public class FlyWeightFactory {
 
     }
 
-    public void ModificarPago(int i, String NuevoValor, String NuevoValor2, String NuevoValor3) {
-        Fly.get(i).setOtros(NuevoValor, NuevoValor2, NuevoValor3);
+    public void ModificarPago(int i, String NuevoValor, String NuevoValor2, String NuevoValor3,String NuevoValor4) {
+        Fly.get(i).setOtros(NuevoValor, NuevoValor2, NuevoValor3,NuevoValor4);
     }
 
     public String LeerPagoEoC(int id) {
@@ -123,5 +127,36 @@ public class FlyWeightFactory {
             }
         }
         return info;
+    }
+    public String getNumTarj() {
+        return NumTarj;
+    }
+
+    public void setNumTarj(String NumTarj) {
+        this.NumTarj = NumTarj;
+    }
+
+    public String getCVV() {
+        return CVV;
+    }
+
+    public void setCVV(String CVV) {
+        this.CVV = CVV;
+    }
+
+    public String getFechaVenc() {
+        return fechaVenc;
+    }
+
+    public void setFechaVenc(String fechaVenc) {
+        this.fechaVenc = fechaVenc;
+    }
+
+    public String getNumTarjD() {
+        return NumTarjD;
+    }
+
+    public void setNumTarjD(String NumTarjD) {
+        this.NumTarjD = NumTarjD;
     }
 }

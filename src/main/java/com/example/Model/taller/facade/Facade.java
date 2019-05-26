@@ -63,6 +63,7 @@ public class Facade {
             for (int j = 0; j < parts.length; j++) {
                 if (Accion.equals("CrearReserva")) {
                     CrearReserva(para[0], para[1], para[2], para[3], para[4]);
+                    x="ok";
                     j = parts.length;
                 }
                 if (Accion.equals("LeerReserva")) {
@@ -71,22 +72,27 @@ public class Facade {
                 }
                 if (Accion.equals("ModificarLugarReserva")) {
                     ModificarLugarReserva(para[0], para[1]);
+                    x="ok";
                     j = parts.length;
                 }
                 if (Accion.equals("CrearPago")) {
                     CrearPago(para[0], para[1], Integer.parseInt(para[2]), para[3], para[4]);
+                    x="ok";
                     j = parts.length;
                 }
                 if (Accion.equals("EliminarPago")) {
                     EliminarPago(G1.ObtenerPago(para[0]));
+                    x="ok";
                     j = parts.length;
                 }
                 if (Accion.equals("EliminarReserva")) {
                     EliminarReserva(G2.ObtenerReserva(para[0]));
+                    x="ok";
                     j = parts.length;
                 }
                 if (Accion.equals("Modificar_ConceptoPago")) {
                     Modificar_ConceptoPago(para[0], para[1]);
+                    x="ok";
                     j = parts.length;
                 }
                 if (Accion.equals("LeerPago")) {
@@ -95,14 +101,27 @@ public class Facade {
                 }
                 if (Accion.equals("CrearTarjetaCredito")) {
                    CrearTarjetaCredito(para[0],para[1],para[2],para[3]);
+                   x="ok";
+                    j = parts.length;
+                }
+                if (Accion.equals("ModificarTarjetaCredito")) {
+                     ModificarTarjetaCredito(para[0], para[1], para[2]);
+                     x="ok";
+                    j = parts.length;
+                }
+                if(Accion.equals("eliminarTarjeta")){
+                    eliminarTarjeta(para[0]);
+                    x="ok";
                     j = parts.length;
                 }
                 if (Accion.equals("Crear_Usuario")) {
                     if (para.length == 4) {
                         Crear_Usuario(para[0], para[1], para[2], Integer.parseInt(para[3]));
+                        x="ok";
                         j = parts.length;
                     } else {
                         Crear_Usuario(para[0], para[1], para[2], para[3], Integer.parseInt(para[4]), para[5], para[6], Integer.parseInt(para[7]));
+                        x="ok";
                         j = parts.length;
                     }
                 }
@@ -110,45 +129,58 @@ public class Facade {
                     x = Consultar_Usuario(para[0]);
                     j = parts.length;
                 }
-                if (Accion.equals("Consultar_UsuarioId")) {
-                    x = ConsultarIdUsuario(Integer.parseInt(para[0]));
-                    j = parts.length;
+                if(Accion.equals("verEstado")){
+                    x=verEstado(para[0]);
+                    j=parts.length;
+                }
+                if(Accion.equals("cambiarEstado")){
+                    mod_Usuario(para[0],"estado",para[1]);
+                    x="ok";
+                    j=parts.length;
                 }
                 if (Accion.equals("eliminar_Usuario")) {
                     eliminar__Usuario(para[0], para[1]);
-                    System.out.println("eU");
+                    x="ok";
                     j = parts.length;
                 }
                 if (Accion.equals("mod_Usuario")) {
                     mod_Usuario(para[0], para[1], para[2]);
+                    x="ok";
                     j = parts.length;
                 }
                 if (Accion.equals("crearCredito")) {
                     crearCredito(Integer.parseInt(para[0]), para[1], para[2], Float.parseFloat(para[3]));
+                    x="ok";
                     j = parts.length;
                 }
                 if (Accion.equals("crearEfectivo")) {
                     crearEfectivo(Integer.parseInt(para[0]), para[1], para[2], Float.parseFloat(para[3]), para[4]);
+                    x="ok";
                     j = parts.length;
                 }
                 if (Accion.equals("EliminarPago")) {
                     componentes.get(a).getFactory().EliminarPago(componentes.get(a).getFactory().Getpago(Integer.parseInt(para[0])));
+                   x="ok";
                     j = parts.length;
                 }
                 if (Accion.equals("ModificarPago")) {
                     componentes.get(a).getFactory().ModificarPago(Integer.parseInt(para[0]), para[1], para[2], para[3]);
+                    x="ok";
                     j = parts.length;
                 }
                 if (Accion.equals("VerPagos")) {
                     componentes.get(a).getFactory().toString();
+                    x="ok";
                     j = parts.length;
                 }
                 if (Accion.equals("crearAgrupacion")) {
                     crearAgrupacion(para[0]);
+                    x="ok";
                     j = parts.length;
                 }
                 if (Accion.equals("agregarUbicaciones")) {
                     agregarUbicaciones(para[0], Double.parseDouble(para[1]), Double.parseDouble(para[2]));
+                    x="ok";
                     j = parts.length;
                 }
                 if (Accion.equals("verUbicaciones")) {
@@ -158,18 +190,22 @@ public class Facade {
                 if (Accion.equals("CrearVehiculo")) {
                     if (para.length == 8) {
                         crearVehiculo(para[0], para[1], para[2], para[3], para[4], para[5], para[6], para[7]);
+                        x="ok";
                         j = parts.length;
                     } else {
                         crearVehiculoconCarac(para[0], para[1], para[2], para[3], para[4], para[5], para[6], para[7], Integer.parseInt(para[8]), para[9], para[10]);
+                        x="ok";
                         j = parts.length;
                     }
                 }
                 if (Accion.equals("ModificarIndividual")) {
                     ModificarIndividual(para[0], para[1]);
+                    x="ok";
                     j = parts.length;
                 }
                 if (Accion.equals("EliminarElemento")) {
                     eliminarElemento(para[0]);
+                    x="ok";
                     j = parts.length;
                 }
                 if (Accion.equals("VerTransporte")) {
@@ -192,10 +228,6 @@ public class Facade {
                     x = leerEoC(para[0], Integer.parseInt(para[1]));
                     j = parts.length;
                 }
-                if (Accion.equals("leerEoC")) {
-                    x = leerEoC(para[0], Integer.parseInt(para[1]));
-                    j = parts.length;
-                }
             }
         } catch (IllegalAccessException ex) {
             Logger.getLogger(Facade.class.getName()).log(Level.SEVERE, null, ex);
@@ -207,7 +239,8 @@ public class Facade {
         return x;
     }
 
-    public void Crear_Usuario(String User, String pass, String Tipo, String nombreCompleto, int telefono, String documento, String email, int id) {
+    public void Crear_Usuario(String User, String pass, String Tipo, String nombreCompleto, int telefono, String documento, String email) {
+        int id = componentes.size() + 1;
         if (Tipo.equals("Pasajero")) {
            Usuario usuario = new Pasajero(User, pass, nombreCompleto, telefono, documento, email, id);
             usuario.setTipo_Usuario(Tipo);
@@ -221,7 +254,8 @@ public class Facade {
         }
     }
 
-    public void Crear_Usuario(String User, String pass, String Tipo, int id) {
+    public void Crear_Usuario(String User, String pass, String Tipo) {
+        int id = componentes.size() + 1;
         if (Tipo.equals("Pasajero")) {
             Usuario usuario = new Pasajero(User, pass, id);
             usuario.setTipo_Usuario(Tipo);
@@ -243,21 +277,6 @@ public class Facade {
         String info = "";
         for (int i = 0; i < componentes.size(); i++) {
             if (componentes.get(i).getUsuario().equalsIgnoreCase(User)) {
-                if (componentes.get(i).getTipo_Usuario().equalsIgnoreCase("Administrador")) {
-                    info = componentes.get(i).getUsuario() + "," + componentes.get(i).getPassword() + "," + componentes.get(i).getTipo_Usuario() + ",";
-                } else {
-                    info = componentes.get(i).getUsuario() + "," + componentes.get(i).getPassword() + "," + componentes.get(i).getTipo_Usuario() + "," + componentes.get(i).getNombre() + ","
-                            + componentes.get(i).getTelefono() + "," + componentes.get(i).getDocumento() + "," + componentes.get(i).getEmail() + ",";
-                }
-            }
-        }
-        return info;
-    }
-
-    public String ConsultarIdUsuario(int id) {
-        String info = "";
-        for (int i = 0; i < componentes.size(); i++) {
-            if (componentes.get(i).getId() == id) {
                 if (componentes.get(i).getTipo_Usuario().equalsIgnoreCase("Administrador")) {
                     info = componentes.get(i).getUsuario() + "," + componentes.get(i).getPassword() + "," + componentes.get(i).getTipo_Usuario() + ",";
                 } else {
@@ -297,6 +316,8 @@ public class Facade {
             componentes.get(a).setTelefono(Integer.parseInt(nuevo));
         } else if (carac.equalsIgnoreCase("nombre")) {
             componentes.get(a).setNombre(nuevo);
+        }else if (carac.equalsIgnoreCase("estado")) {
+            componentes.get(a).setEstado(nuevo);
         }
     }
 
@@ -305,7 +326,16 @@ public class Facade {
         FlyWeight F = FF.Getpago(id);
         for (int i = 0; i < componentes.size(); i++) {
             if (componentes.get(i).getUsuario().equalsIgnoreCase(nombrePasajero)) {
+<<<<<<< HEAD
              componentes.get(i).getFactory().CrearPagoTarjeta(id, nombrePasajero, nombreConductor, monto);
+=======
+                for (int j = 0; j < componentes.size(); j++) {
+                    if (componentes.get(j).getUsuario().equalsIgnoreCase(nombreConductor)) {
+                        componentes.get(i).getFactory().setNumTarjD(componentes.get(j).getFactory().getNumTarj());
+                    }
+                }
+                componentes.get(i).getFactory().CrearPagoTarjeta(id, nombrePasajero, nombreConductor, monto);
+>>>>>>> 77793b06f2dfd70390a66cbe0b0a6e86d024ac87
             }
         }
     }
@@ -449,5 +479,27 @@ public class Facade {
             }
         }
     }
-
+    public void ModificarTarjetaCredito(String nombreU,String caracteristica, String nuevo){
+        for (int i = 0; i < componentes.size(); i++) {
+            if (componentes.get(i).getUsuario().equalsIgnoreCase(nombreU)) {
+                componentes.get(i).cambiarTarjeta(caracteristica, nuevo);
+            }
+        }
+    }
+    public void eliminarTarjeta(String nombreU){
+        for (int i = 0; i < componentes.size(); i++) {
+            if (componentes.get(i).getUsuario().equalsIgnoreCase(nombreU)) {
+                componentes.get(i).crearTarjeta("", "", "");
+            }
+        }
+    }
+    public String verEstado(String nombreU){
+        String state=""; 
+        for (int i = 0; i < componentes.size(); i++) {
+            if (componentes.get(i).getUsuario().equalsIgnoreCase(nombreU)) {
+                state=componentes.get(i).getEstado();
+            }
+        }
+        return state;
+    }
 }

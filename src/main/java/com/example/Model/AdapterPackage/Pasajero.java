@@ -13,12 +13,17 @@ import Flyweight.FlyWeightFactory;
  * @author Nikolas
  */
 public class Pasajero extends Usuario {
-//Prueba
-    private FlyWeightFactory factory;
-    private String tipo="Pasajero";
 
-    public Pasajero(String Usuario, String Password,int Id) {
-        super(Usuario, Password,Id);
+    private FlyWeightFactory factory;
+    private String tipo = "Pasajero";
+
+    public Pasajero(String usuario, String password, String nombre, int telefono, String documento, String email, int id) {
+        super(usuario, password, nombre, telefono, documento, email, id);
+        this.factory = new FlyWeightFactory();
+    }
+
+    public Pasajero(String Usuario, String Password, int Id) {
+        super(Usuario, Password, Id);
         this.factory = new FlyWeightFactory();
     }
 
@@ -38,6 +43,16 @@ public class Pasajero extends Usuario {
     @Override
     public int getId() {
         return super.getId(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String getNombre() {
+        return super.getNombre();
+    }
+
+    @Override
+    public void setNombre(String nombre) {
+        super.setNombre(nombre);
     }
 
     @Override
@@ -62,10 +77,9 @@ public class Pasajero extends Usuario {
 
     @Override
     public String getUsuario() {
-        return super.getUsuario(); //To change body of generated methods, choose Tools | Templates.
+        return super.getUsuario(); // body of generated methods, choose Tools | Templates.
     }
 
-    
     @Override
     public String getTipo_Usuario() {
         return this.tipo;
@@ -73,8 +87,8 @@ public class Pasajero extends Usuario {
 
     @Override
     public String Permisos() {
-        return "CrearReserva,LeerReserva,ModificarLugarReserva,EliminarReserva,CrearPago,LeerPago,Consultar_Usuario,mod_Usuario,"
-                + "crearCredito,crearEfectivo,VerPagos,VerTransporte,crearTarjetaCredito,crearTarjetaDebito,ModificarTarjetaCredito,ModificarTarjetaDebito,VerViajesRealizados,VerRutas,VerAyudas,GuardarUbicaciones,CerrarSesion";
+        return "CrearReserva,ModificarTarjetaCredito,eliminarTarjeta,LeerReserva,ModificarLugarReserva,EliminarReserva,CrearPago,LeerPago,Consultar_Usuario,mod_Usuario,CrearTarjetaCredito"
+                + "crearCredito,crearEfectivo,VerPagos,VerTransporte,crearTarjetaCredito,crearTarjetaDebito,ModificarTarjetaCredito,ModificarTarjetaDebito,VerViajesRealizados,VerRutas,VerAyudas,GuardarUbicaciones,agregarUbicaciones,verUbicaciones,CerrarSesion";
     }
 
     public FlyWeightFactory getFactory() {
@@ -94,6 +108,7 @@ public class Pasajero extends Usuario {
     public String getPagos(String nombreP) {
         return this.factory.toStringPagosPasajero(nombreP);
     }
+
     @Override
     public String getEmail() {
         return super.getEmail();
@@ -103,8 +118,9 @@ public class Pasajero extends Usuario {
     public void setEmail(String email) {
         super.setEmail(email);
     }
+
     @Override
-    public int  getTelefono() {
+    public int getTelefono() {
         return super.getTelefono();
     }
 
@@ -114,21 +130,43 @@ public class Pasajero extends Usuario {
     }
 
     @Override
-    public void setLat(double  Lat) {
+    public void setLat(double Lat) {
         super.setLat(Lat);
     }
+
     @Override
     public double getLat() {
         return super.getLat();
     }
 
     @Override
-    public void setLong(double  Long) {
+    public void setLong(double Long) {
         super.setLong(Long);
     }
+
     @Override
     public double getLong() {
         return super.getLong();
     }
 
+    @Override
+    public void crearTarjeta(String Num, String CVV, String FV) {
+       System.out.println("Tarjeta Creada");
+       this.factory.setNumTarj(Num);
+       this.factory.setCVV(CVV);
+       this.factory.setFechaVenc(FV);
+    }
+
+    @Override
+    public void cambiarTarjeta(String carac, String nuevo) {
+        if(carac.equalsIgnoreCase("Numero de Tarjeta")){
+            this.factory.setNumTarj(nuevo);
+        }
+        if(carac.equalsIgnoreCase("CVV")){
+            this.factory.setCVV(nuevo);
+        }
+        if(carac.equalsIgnoreCase("Fecha de Vencimiento")){
+            this.factory.setFechaVenc(nuevo);
+        }
+    }
 }

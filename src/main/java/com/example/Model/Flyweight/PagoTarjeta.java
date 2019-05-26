@@ -71,8 +71,8 @@ public class PagoTarjeta implements FlyWeight {
     }
     
     @Override
-    public void setOtros(String dato1, String dato2, String dato3) {
-        this.otros="numeroTarjeta: "+dato1+", CVV: "+dato2+", fechaVencimiento: "+dato3;
+    public void setOtros(String dato1, String dato2, String dato3,String dato4) {
+        this.otros="numeroTarjeta: "+dato1+", CVV: "+dato2+", fechaVencimiento: "+dato3+", Tarjeta del recibiente: "+dato4;
     }
  
     @Override
