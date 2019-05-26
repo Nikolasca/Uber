@@ -120,7 +120,7 @@ public class Adapter extends Usuario {
     }
     @Override
     public int getTelefono() {
-        return super.getTelefono;
+        return super.getTelefono();
     }
     @Override
     public void setTelefono(int telefono) {
