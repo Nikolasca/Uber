@@ -326,16 +326,13 @@ public class Facade {
         FlyWeight F = FF.Getpago(id);
         for (int i = 0; i < componentes.size(); i++) {
             if (componentes.get(i).getUsuario().equalsIgnoreCase(nombrePasajero)) {
-<<<<<<< HEAD
              componentes.get(i).getFactory().CrearPagoTarjeta(id, nombrePasajero, nombreConductor, monto);
-=======
                 for (int j = 0; j < componentes.size(); j++) {
                     if (componentes.get(j).getUsuario().equalsIgnoreCase(nombreConductor)) {
                         componentes.get(i).getFactory().setNumTarjD(componentes.get(j).getFactory().getNumTarj());
                     }
                 }
                 componentes.get(i).getFactory().CrearPagoTarjeta(id, nombrePasajero, nombreConductor, monto);
->>>>>>> 77793b06f2dfd70390a66cbe0b0a6e86d024ac87
             }
         }
     }
@@ -368,7 +365,7 @@ public class Facade {
     }
 
     public void crearVehiculo(String nombreG, String nombre, String tipo, String placa, String cantidadpuestos, String marca, String ano, String referencia) {
-      //  Transporte aN = new Individual(nombre, tipo, placa, cantidadpuestos, marca, ano, referencia);
+       Transporte aN = new Individual(nombre, tipo, placa, cantidadpuestos, marca, ano, referencia);
         if (nombreG.equalsIgnoreCase("")) {
             mT.Crear(aN);
         } else {
