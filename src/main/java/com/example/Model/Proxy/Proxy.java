@@ -17,8 +17,8 @@ public class Proxy {
     //MandarTodo
 
     private Facade facade;
-    private final ArrayList<String> nombreUsuario = new ArrayList<String>();
-    private ArrayList<String> paseUsuario = new ArrayList<String>();
+    private ArrayList<String> nombreUsuario = new ArrayList<>();
+    private ArrayList<String> paseUsuario = new ArrayList<>();
 
     public Proxy() {
         this.facade = Facade.getFacade();
@@ -40,8 +40,14 @@ public class Proxy {
         return ingreso;
     }
 
-    public void crearUsuario(String nombre, String pass, String tipo) {
-        facade.Crear_Usuario(nombre, pass, tipo);
+    public void crearUsuario(String nombre, String pass, String tipo,String nombreCompleto,int telefono,String documento,String email,int id) {
+        facade.Crear_Usuario(nombre, pass, tipo,nombreCompleto,telefono,documento,email,telefono);
+        nombreUsuario.add(nombre);
+        paseUsuario.add(pass);
+    }
+    
+    public void crearUsuario(String nombre, String pass, String tipo,int id) {
+        facade.Crear_Usuario(nombre, pass, tipo,id);
         nombreUsuario.add(nombre);
         paseUsuario.add(pass);
     }
