@@ -117,7 +117,7 @@ public class UsuarioController{
         so.setId(s.getUsuarios().size() + 1);
         so.setUsuario("Prueba");
         so.setTipo_Usuario("Adminstrador");
-        so.setTelefono("123");
+        so.setTelefono(123);
         so.setPassword("123");
         so.setLat(37.41745719539887);
         so.setLong(-122.084046);
