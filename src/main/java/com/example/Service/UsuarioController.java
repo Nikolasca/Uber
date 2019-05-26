@@ -113,8 +113,8 @@ public class UsuarioController{
     }
 
     public void LALALA(){
-        Usuario so = new Administrador();
-        user.setId(s.getUsuarios().size() + 1);
+        Usuario so = new Adapter();
+        so.setId(s.getUsuarios().size() + 1);
         so.setUsuario("Prueba");
         so.setTipo_Usuario("Adminstrador");
         user.setTelefono("123");
