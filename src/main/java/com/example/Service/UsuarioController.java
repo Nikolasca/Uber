@@ -115,10 +115,13 @@ public class UsuarioController{
     public void LALALA(){
         Usuario so = new Conductor();
         so.setUsuario("Prueba");
-        so.setTipo_Usuario("Conductor");
+        so.setTipo_Usuario("Adminstrador");
+        so.setPassword("123");
         so.setLat(37.41745719539887);
         so.setLong(-122.084046);
         s.Add(so);
+
+
     }
     
     @RequestMapping(value = "/Acceso", method = RequestMethod.POST)
