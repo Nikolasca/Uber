@@ -139,6 +139,18 @@ public class UsuarioController{
 
       
     }
+
+    @RequestMapping(value = "/Crear", method = RequestMethod.POST)
+    @ResponseBody
+    public String AccesoGeneral(@RequestParam("nombre") String nombre, @RequestParam("pass") String pass, @RequestParam("tipo") String tipo, @RequestParam("nombreCompleto") String nombreCompleto,@RequestParam("telefono")int telefono, @RequestParam("documento")String documento,@RequestParam("email")String email, @RequestParam("id")int id) throws NoSuchMethodException{
+
+       proxy.crearUsuario(nombre, pass, tipo,nombreCompleto,telefono,documento,email,telefono);
+        
+       return("Se creo el usuario");
+
+
+      
+    }
 }
 
 
