@@ -10,7 +10,7 @@ import AdapterPackage.Conductor;
 import AdapterPackage.Pasajero;
 import AdapterPackage.Usuario;
 import Composite.*;
-import Decorator.*;
+//import Decorator.*;
 import Flyweight.FlyWeight;
 import Flyweight.FlyWeightFactory;
 import java.lang.reflect.InvocationTargetException;
@@ -30,7 +30,7 @@ public class Facade {
     private ArrayList<Usuario> componentes = new ArrayList();
     private static Facade facade;
     private FlyWeightFactory FF = new FlyWeightFactory();
-   // private MedioTransporte mT = new MedioTransporte("GrupoBase");
+    private MedioTransporte mT = new MedioTransporte("GrupoBase");
 
     public Facade() {
         Usuario user = new Adapter("Hola", "123", 1);
