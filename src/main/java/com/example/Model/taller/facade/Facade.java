@@ -116,7 +116,7 @@ public class Facade {
                 }
                 if (Accion.equals("Crear_Usuario")) {
                     
-                        Crear_Usuario(para[0], para[1], para[2], para[3], Integer.parseInt(para[4]), para[5], para[6], Integer.parseInt(para[7]));
+                        Crear_Usuario(para[0], para[1], para[2], Integer.parseInt(para[3]),para[4], para[5], Integer.parseInt(para[6]));
                         x="ok";
                         j = parts.length;
                     
@@ -145,7 +145,7 @@ public class Facade {
                     j = parts.length;
                 }
                 if (Accion.equals("crearCredito")) {
-                    crearCredito(Integer.parseInt(para[0]), para[1], para[2], Float.parseFloat(para[3]));
+                    crearCredito(Integer.parseInt(para[0]), para[1], para[2], Float.parseFloat(para[3]),para[4]);
                     x="ok";
                     j = parts.length;
                 }
@@ -318,7 +318,7 @@ public class Facade {
     }
 
     public void crearCredito(int id, String nombrePasajero, String nombreConductor, float monto,String otros) {
-       FF.CrearPagoTarjeta(id, nombrePasajero, nombreConductor, monto);
+       FF.CrearPagoTarjeta(id, nombrePasajero, nombreConductor, monto,otros);
         FlyWeight F = FF.Getpago(id);
         for (int i = 0; i < componentes.size(); i++) {
             if (componentes.get(i).getUsuario().equalsIgnoreCase(nombrePasajero)) {
