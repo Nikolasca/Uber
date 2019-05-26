@@ -88,7 +88,7 @@ public class Pasajero extends Usuario {
     @Override
     public String Permisos() {
         return "CrearReserva,ModificarTarjetaCredito,eliminarTarjeta,LeerReserva,ModificarLugarReserva,EliminarReserva,CrearPago,LeerPago,Consultar_Usuario,mod_Usuario,CrearTarjetaCredito"
-                + "crearCredito,crearEfectivo,VerPagos,VerTransporte,crearTarjetaCredito,crearTarjetaDebito,ModificarTarjetaCredito,ModificarTarjetaDebito,VerViajesRealizados,VerRutas,VerAyudas,GuardarUbicaciones,agregarUbicaciones,verUbicaciones,CerrarSesion";
+                + "crearCredito,crearEfectivo,VerPagos,VerTransporte,crearTarjetaCredito,crearTarjetaDebito,ModificarTarjetaCredito,ModificarTarjetaDebito,VerViajesRealizados,VerRutas,VerAyudas,GuardarUbicaciones,agregarUbicaciones,verUbicaciones,CerrarSesion,ActPosicion";
     }
 
     public FlyWeightFactory getFactory() {
