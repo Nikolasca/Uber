@@ -16,7 +16,7 @@ public class Conductor extends Usuario {
 
     private FlyWeightFactory factory;
     private String tipo = "Conductor";
-    private String estadoActivo="Activo";
+    private String estadoActivo="Inactivo";
 
     public Conductor(String usuario, String password, String nombre, int telefono, String documento, String email, int id) {
         super(usuario, password, nombre, telefono, documento, email, id);
