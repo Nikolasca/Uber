@@ -185,7 +185,7 @@ public class Facade {
                 }
                 if (Accion.equals("ActPosicion")) {
                     ActPosicion(Integer.parseInt(para[0]),Double.parseDouble(para[1]),Double.parseDouble(para[2]));
-                    x = "Se actualizó Ubicación";
+                    x = "Se actualizo Ubicacion";
                     j = parts.length;
                 }
                 if (Accion.equals("CrearVehiculo")) {
@@ -273,7 +273,7 @@ public class Facade {
             System.out.print("No hizo match tipo");
         }
     }
-public void ActPosicion(int id, double Lat, double Lon){
+public void ActPosicion(int id, double Lat, double Long){
     for (Usuario componente : componentes) {
         if(componente.getId() ==id){
             componente.setLat(Lat);
