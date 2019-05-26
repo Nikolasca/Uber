@@ -184,8 +184,6 @@ public class Conductor extends Usuario {
             this.factory.setFechaVenc(nuevo);
         }
        System.out.println("Tarjeta Creada");
-       this.factory.setNumTarj(Num);
-       this.factory.setCVV(CVV);
-       this.factory.setFechaVenc(FV);
+    
     }
 }
