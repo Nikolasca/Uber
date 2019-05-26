@@ -12,8 +12,7 @@ package AdapterPackage;
 
 import Flyweight.FlyWeight;
 import Flyweight.FlyWeightFactory;
-
-
+import java.util.ArrayList;
 
 /**
  *
@@ -31,7 +30,9 @@ public abstract class Usuario {
     private int id;
     private double Lat;
     private double Long;
-
+    private String estado;
+    private ArrayList<Double> Ubicaciones = new ArrayList<>();
+        
     public Usuario(String usuario, String password, String nombre, int telefono, String documento, String email, int id) {
         this.usuario = usuario;
         this.password = password;
@@ -122,6 +123,8 @@ public abstract class Usuario {
     public abstract String getPago(int id);
 
     public abstract String getPagos(String nombre);
+    
+    public abstract void crearTarjeta(String Num,String CVV, String FV);
 
     public int getId() {
         return id;
@@ -145,5 +148,26 @@ public abstract class Usuario {
 
     public void setLong(double Long) {
         this.Long = Long;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public String getUbicaciones() {
+        String ubicaciones="";
+        for(int i=0;i<Ubicaciones.size();i+=2){
+            ubicaciones+=Ubicaciones.get(i)+"/"+Ubicaciones.get(i+1)+"\n";
+        }
+        return ubicaciones;
+    }
+
+    public void setUbicaciones(double U1,double U2) {
+        Ubicaciones.add(U1);
+        Ubicaciones.add(U2);
     }
 }
