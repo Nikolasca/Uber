@@ -183,5 +183,9 @@ public class Conductor extends Usuario {
         if(carac.equalsIgnoreCase("Fecha de Vencimiento")){
             this.factory.setFechaVenc(nuevo);
         }
+       System.out.println("Tarjeta Creada");
+       this.factory.setNumTarj(Num);
+       this.factory.setCVV(CVV);
+       this.factory.setFechaVenc(FV);
     }
 }
