@@ -277,7 +277,7 @@ public class Facade {
                     info = componentes.get(i).getUsuario() + "," + componentes.get(i).getPassword() + "," + componentes.get(i).getTipo_Usuario() + ",";
                 } else {
                     info = "UsuarioAceptadoXX"+componentes.get(i).getUsuario() + "XX" + componentes.get(i).getPassword() + "XX" + componentes.get(i).getTipo_Usuario() + "XX"
-                            + componentes.get(i).getTelefono()  + "XX" + componentes.get(i).getEmail() + "XX";
+                            + componentes.get(i).getTelefono()  + "XX" + componentes.get(i).getEmail() + "XX"+ componentes.get(i).getId()+"XX" ;
                 }
             }
         }
