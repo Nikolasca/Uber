@@ -127,7 +127,7 @@ public class UsuarioController{
     
     @RequestMapping(value = "/Acceso", method = RequestMethod.POST)
     @ResponseBody
-    public String AccesoGeneral((@RequestParam("cadena") String Acceso) throws NoSuchMethodException{
+    public String AccesoGeneral(@RequestParam("cadena") String Acceso) throws NoSuchMethodException{
 
         String res = proxy.llamarMetodoGeneral(Acceso);
         if(res==null){
