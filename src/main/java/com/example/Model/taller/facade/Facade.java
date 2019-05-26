@@ -183,6 +183,11 @@ public class Facade {
                     x = verUbicaciones(para[0]);
                     j = parts.length;
                 }
+                if (Accion.equals("ActPosicion")) {
+                    ActPosicion(Integer.parseInt(para[0]),Double.parseDouble(para[1]),Double.parseDouble(para[2]));
+                    x = "Se actualizó Ubicación";
+                    j = parts.length;
+                }
                 if (Accion.equals("CrearVehiculo")) {
                     if (para.length == 8) {
                         crearVehiculo(para[0], para[1], para[2], para[3], para[4], para[5], para[6], para[7]);
@@ -268,7 +273,16 @@ public class Facade {
             System.out.print("No hizo match tipo");
         }
     }
-
+public void ActPosicion(int id, double Lat, double Lon){
+    for (Usuario componente : componentes) {
+        if(componente.getId() ==id){
+            componente.setLat(Lat);
+            componente.setLong(Long);
+        }
+        
+    }
+    
+}
     public String Consultar_Usuario(String User, String Pass) {
         String info = "";
         for (int i = 0; i < componentes.size(); i++) {
