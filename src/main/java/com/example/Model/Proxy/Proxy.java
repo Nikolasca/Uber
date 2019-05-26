@@ -27,7 +27,7 @@ public class Proxy {
     public boolean validarUsuario(String nombreU, String passwordU) {
         boolean ingreso = false;
         int encontrado = 0;
-        String[] info = facade.Consultar_Usuario(nombreU).split(",");
+        String[] info = facade.Consultar_Usuario(nombreU,passwordU).split(",");
         for (int i = 0; i < nombreUsuario.size(); i++) {
             if (nombreUsuario.get(i).equalsIgnoreCase(nombreU) && paseUsuario.get(i).equalsIgnoreCase(passwordU) && info[0].equalsIgnoreCase(nombreU) && info[1].equalsIgnoreCase(passwordU)) {
                 encontrado += 1;
