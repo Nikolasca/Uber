@@ -32,7 +32,18 @@ public abstract class Usuario {
     private double Lat;
     private double Long;
 
-    public Usuario(String Usuario, String Password,int id) {
+    public Usuario(String usuario, String password, String nombre, int telefono, String documento, String email, int id) {
+        this.usuario = usuario;
+        this.password = password;
+        this.nombre = nombre;
+        this.telefono = telefono;
+        this.documento = documento;
+        this.email = email;
+        this.id = id;
+    }
+
+   
+    public Usuario(String Usuario, String Password, int id) {
         this.usuario = Usuario;
         this.password = Password;
         this.id = id;
@@ -135,5 +146,4 @@ public abstract class Usuario {
     public void setLong(double Long) {
         this.Long = Long;
     }
-
 }
