@@ -209,11 +209,11 @@ public class Facade {
 
     public void Crear_Usuario(String User, String pass, String Tipo, String nombreCompleto, int telefono, String documento, String email, int id) {
         if (Tipo.equals("Pasajero")) {
-          //  Usuario usuario = new Pasajero(User, pass, nombreCompleto, telefono, documento, email, id);
+           Usuario usuario = new Pasajero(User, pass, nombreCompleto, telefono, documento, email, id);
             usuario.setTipo_Usuario(Tipo);
             componentes.add(usuario);
         } else if (Tipo.equals("Conductor")) {
-           // Usuario usuario = new Conductor(User, pass, nombreCompleto, telefono, documento, email, id);
+            Usuario usuario = new Conductor(User, pass, nombreCompleto, telefono, documento, email, id);
             usuario.setTipo_Usuario(Tipo);
             componentes.add(usuario);
         } else {
@@ -301,11 +301,11 @@ public class Facade {
     }
 
     public void crearCredito(int id, String nombrePasajero, String nombreConductor, float monto) {
-       // FF.CrearPagoTarjeta(id, nombrePasajero, nombreConductor, monto);
+       FF.CrearPagoTarjeta(id, nombrePasajero, nombreConductor, monto);
         FlyWeight F = FF.Getpago(id);
         for (int i = 0; i < componentes.size(); i++) {
             if (componentes.get(i).getUsuario().equalsIgnoreCase(nombrePasajero)) {
-           //     componentes.get(i).getFactory().CrearPagoTarjeta(id, nombrePasajero, nombreConductor, monto);
+             componentes.get(i).getFactory().CrearPagoTarjeta(id, nombrePasajero, nombreConductor, monto);
             }
         }
     }
@@ -333,7 +333,7 @@ public class Facade {
     }
 
     public void crearAgrupacion(String NombreGrupo) {
-       // MedioTransporte grupo = new MedioTransporte(NombreGrupo);
+        MedioTransporte grupo = new MedioTransporte(NombreGrupo);
         mT.Crear(grupo);
     }
 
@@ -347,7 +347,7 @@ public class Facade {
     }
 
     public void crearVehiculoconCarac(String nombreG, String nombre, String tipo, String placa, String cantidadpuestos, String marca, String ano, String referencia, int capacidad, String descripcion, String identificador) {
-     //   Transporte aN = new IdentificadorDecorator(identificador, new DescripcionDecorator(descripcion, new CapacidadDecorator(capacidad, new Individual(nombre, tipo, placa, cantidadpuestos, marca, ano, referencia))));
+       Transporte aN = new IdentificadorDecorator(identificador, new DescripcionDecorator(descripcion, new CapacidadDecorator(capacidad, new Individual(nombre, tipo, placa, cantidadpuestos, marca, ano, referencia))));
         if (nombreG.equalsIgnoreCase("")) {
             mT.Crear(aN);
         } else {
@@ -372,7 +372,7 @@ public class Facade {
 
     public void CrearReserva(String nombre, String id, String fecha, String concepto, String lugar) {
         Reserva reserva = new Reserva(nombre, id, fecha, concepto, lugar);
-      //  G2.AñadirGrupito(reserva);
+        G2.AñadirGrupito(reserva);
     }
 
     public void EliminarReserva(Reserva r) {
@@ -393,7 +393,7 @@ public class Facade {
 
     public void CrearPago(String nombre, String id, int pago, String fecha, String concepto) {
         Pago pago1 = new Pago(nombre, id, pago, fecha, concepto);
-      //  G1.AñadirGrupito(pago1);
+        G1.AñadirGrupito(pago1);
     }
 
     public void EliminarPago(Pago r) {
@@ -427,7 +427,7 @@ public class Facade {
     public void agregarUbicaciones(String nombreU, double U1, double U2) {
         for (int i = 0; i < componentes.size(); i++) {
             if (componentes.get(i).getUsuario().equalsIgnoreCase(nombreU)) {
-              //  componentes.get(i).setUbicaciones(U1, U2);
+                componentes.get(i).setUbicaciones(U1, U2);
             }
         }
     }
@@ -436,7 +436,7 @@ public class Facade {
         String ubicacion = "";
         for (int i = 0; i < componentes.size(); i++) {
             if (componentes.get(i).getUsuario().equalsIgnoreCase(nombreU)) {
-          //      ubicacion = componentes.get(i).getUbicaciones();
+               ubicacion = componentes.get(i).getUbicaciones();
             }
         }
         return ubicacion;
@@ -445,7 +445,7 @@ public class Facade {
         System.out.println("CrearC"+nombreU+Num+CVV+fv);
         for (int i = 0; i < componentes.size(); i++) {
             if (componentes.get(i).getUsuario().equalsIgnoreCase(nombreU)) {
-             //   componentes.get(i).crearTarjeta(Num, CVV, fv);
+               componentes.get(i).crearTarjeta(Num, CVV, fv);
             }
         }
     }
