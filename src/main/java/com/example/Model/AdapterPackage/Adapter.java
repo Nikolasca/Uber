@@ -14,8 +14,7 @@ import javax.swing.JOptionPane;
  * @author Nikolas
  */
 public class Adapter extends Usuario {
-
-    private Administrador admin;
+private Administrador admin;
     private FlyWeightFactory factory;
 
     public Adapter(String Usuario, String Password, int id) {
@@ -117,5 +116,10 @@ public class Adapter extends Usuario {
     @Override
     public void setEmail(String email) {
         super.setEmail(email);
+    }
+
+    @Override
+    public void crearTarjeta(String Num, String CVV, String FV) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

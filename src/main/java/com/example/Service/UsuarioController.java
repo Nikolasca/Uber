@@ -47,6 +47,7 @@ public class UsuarioController{
             user.setEmail(email);
             user.setTelefono(telefono);
             s.Add(user);
+            LALALA();
              mensaje = "Pasajero Creado";
             return  mensaje;
         } else if (type.compareTo("Administrador") == 0) {
@@ -116,17 +117,36 @@ public class UsuarioController{
         Usuario so = new Conductor();
         so.setUsuario("Prueba");
         so.setTipo_Usuario("Conductor");
+        so.setPassword("123");
         so.setLat(37.41745719539887);
         so.setLong(-122.084046);
         s.Add(so);
+
+        
     }
     
     @RequestMapping(value = "/Acceso", method = RequestMethod.POST)
     @ResponseBody
-    public String AccesoGeneral(String Acceso) throws NoSuchMethodException{
+    public String AccesoGeneral(@RequestParam("cadena") String Acceso) throws NoSuchMethodException{
 
         String res = proxy.llamarMetodoGeneral(Acceso);
+        if(res==null){
+
+            res = "No responde";
+        }
         return res;
+
+
+      
+    }
+
+    @RequestMapping(value = "/Crear", method = RequestMethod.POST)
+    @ResponseBody
+    public String AccesoGeneral(@RequestParam("nombre") String nombre, @RequestParam("pass") String pass, @RequestParam("tipo") String tipo, @RequestParam("nombreCompleto") String nombreCompleto,@RequestParam("telefono")int telefono, @RequestParam("documento")String documento,@RequestParam("email")String email, @RequestParam("id")int id) throws NoSuchMethodException{
+
+       proxy.crearUsuario(nombre, pass, tipo,nombreCompleto,telefono,documento,email,telefono);
+        
+       return("Se creo el usuario");
 
 
       

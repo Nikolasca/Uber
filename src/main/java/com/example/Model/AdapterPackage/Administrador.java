@@ -10,7 +10,7 @@ package AdapterPackage;
  * @author Nikolas
  */
 public class Administrador {
-    private String Usuario;
+     private String Usuario;
     private String Password;
     private String TipoUsuario;
     
@@ -30,7 +30,7 @@ public class Administrador {
     }
 
     public String PP() {
-        return "CrearVehiculo,crearAgrupacion,AgregarAgrupacion,EliminarElemento,eliminar_Usuario,Consultar_Usuario,CerrarSesion,InmovilizarUsuario,VerTodos,ModificarNombre_Elemento";
+        return "Crear_Usuario,CrearVehiculo,crearAgrupacion,AgregarAgrupacion,EliminarElemento,eliminar_Usuario,Consultar_Usuario,CerrarSesion,mod_Usuario,InmovilizarUsuario,VerTodos,ModificarNombre_Elemento,Consultar_UsuarioId";
     }
 
     public void setPassword(String Password) {
@@ -43,6 +43,5 @@ public class Administrador {
 
     public void setTipoUsuario(String TipoUsuario) {
         this.TipoUsuario = TipoUsuario;
-    }
-    
+    }  
 }

@@ -15,11 +15,16 @@ import Flyweight.FlyWeightFactory;
 public class Conductor extends Usuario {
 
     private FlyWeightFactory factory;
-   // private String tipo = "Conductor";
-    private String nombre;
+    private String tipo = "Conductor";
+    private String estadoActivo="Activo";
+
+    public Conductor(String usuario, String password, String nombre, int telefono, String documento, String email, int id) {
+        super(usuario, password, nombre, telefono, documento, email, id);
+        this.factory = factory;
+    }
 
     public Conductor(String Usuario, String Password, int ID) {
-        super(Usuario, Password,ID);
+        super(Usuario, Password, ID);
         FlyWeightFactory factory = new FlyWeightFactory();
     }
 
@@ -39,20 +44,19 @@ public class Conductor extends Usuario {
     @Override
     public int getId() {
         return super.getId(); //To change body of generated methods, choose Tools | Templates.
-       
+
     }
 
     @Override
     public void setTipo_Usuario(String Tipo_Usuario) {
         super.setTipo_Usuario(Tipo_Usuario); //To change body of generated methods, choose Tools | Templates.
-        
+
     }
 
     @Override
     public void setPassword(String Password) {
         super.setPassword(Password); //To change body of generated methods, choose Tools | Templates.
-       
-    
+
     }
 
     @Override
@@ -69,17 +73,15 @@ public class Conductor extends Usuario {
     public String getUsuario() {
         return super.getUsuario(); //To change body of generated methods, choose Tools | Templates.
     }
-    
-
 
     @Override
     public String getTipo_Usuario() {
-      return super.getTipo_Usuario();
+        return super.getTipo_Usuario();
     }
 
     @Override
     public String Permisos() {
-        return "LeerPago,CrearRuta,ModificarRuta,EliminarRuta,VerRuta,VerHorario,CerrarSesion";
+        return "LeerPago,crearCredito,CrearRuta,ModificarRuta,EliminarRuta,VerRuta,VerHorario,CrearVehiculo,mod_Usuario,Consultar_Usuario,CerrarSesion";
     }
 
     public FlyWeightFactory getFactory() {
@@ -98,8 +100,8 @@ public class Conductor extends Usuario {
 
     @Override
     public String getPagos(String nombreC) {
-         return this.factory.toStringPagosConductor(nombreC);
-         
+        return this.factory.toStringPagosConductor(nombreC);
+
     }
 
     public void setTipo(String tipo) {
@@ -107,11 +109,11 @@ public class Conductor extends Usuario {
     }
 
     public String getNombre() {
-        return nombre;
+        return super.getNombre();
     }
 
     public void setNombre(String nombre) {
-        this.nombre = nombre;
+        super.setNombre(nombre);
     }
 
     @Override
@@ -123,32 +125,47 @@ public class Conductor extends Usuario {
     public void setEmail(String email) {
         super.setEmail(email);
     }
+
     @Override
     public int getTelefono() {
         return super.getTelefono();
     }
+
     @Override
     public void setTelefono(int Telefono) {
         super.setTelefono(Telefono);
     }
 
     @Override
-    public void setLat(double  Lat) {
+    public void setLat(double Lat) {
         super.setLat(Lat);
     }
+
     @Override
     public double getLat() {
         return super.getLat();
     }
 
     @Override
-    public void setLong(double  Long) {
+    public void setLong(double Long) {
         super.setLong(Long);
     }
+
     @Override
     public double getLong() {
         return super.getLong();
     }
 
+    public String getEstado() {
+        return estadoActivo;
+    }
 
+    public void setEstado(String estadoActivo) {
+        this.estadoActivo = estadoActivo;
+    }
+
+    @Override
+    public void crearTarjeta(String Num, String CVV, String FV) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
