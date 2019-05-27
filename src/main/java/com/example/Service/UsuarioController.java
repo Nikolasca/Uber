@@ -105,7 +105,6 @@ public class UsuarioController{
         ArrayList <Usuario> c = new ArrayList();
         c.add(so);
         usuarios.add(so);
-        
         return usuarios;
         }
        
