@@ -184,7 +184,7 @@ public class Facade {
                     j = parts.length;
                 }
                 if (Accion.equals("ActPosicion")) {
-                    ActPosicion(Integer.parseInt(para[0]), Double.parseDouble(para[1]), Double.parseDouble(para[2]));
+                    ActPosicion(Integer.parseInt(para[0]), Double.parseDouble(para[1]), -122.084046);
                     x = "Se actualizo Ubicacion";
                     j = parts.length;
                 }
