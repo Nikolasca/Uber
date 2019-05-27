@@ -291,7 +291,7 @@ public void ActPosicion(int id, double Lat, double Long){
         for (int i = 0; i < componentes.size(); i++) {
             if (componentes.get(i).getUsuario().equalsIgnoreCase(User)&& componentes.get(i).getPassword().equalsIgnoreCase(Pass))  {
                 if (componentes.get(i).getTipo_Usuario().equalsIgnoreCase("Administrador")) {
-                    info = componentes.get(i).getUsuario() + "," + componentes.get(i).getPassword() + "," + componentes.get(i).getTipo_Usuario() + ",";
+                    info = "UsuarioAceptadoXX"+componentes.get(i).getUsuario() + "XX" + componentes.get(i).getPassword() + "XX" + componentes.get(i).getTipo_Usuario() + "XX";
                 } else {
                     info = "UsuarioAceptadoXX"+componentes.get(i).getUsuario() + "XX" + componentes.get(i).getPassword() + "XX" + componentes.get(i).getTipo_Usuario() + "XX"
                             + componentes.get(i).getTelefono()  + "XX" + componentes.get(i).getEmail() + "XX"+ componentes.get(i).getId()+"XX"+ componentes.get(i).getLat()+"XX"+ componentes.get(i).getLong()+"XX" ;
