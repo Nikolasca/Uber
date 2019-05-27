@@ -105,7 +105,14 @@ public class UsuarioController{
         ArrayList <Usuario> c = new ArrayList();
         c.add(so);
         usuarios.add(so);
-        return usuarios;
+        for(int i=0; i<usuarios.size();i++){
+            if(usuarios.get(i).getTipo_Usuario().compareTo("Conductor")==0){
+               c.add(usuarios.get(i));
+                    
+            }
+        
+        }
+        return c;
         }
        
        
