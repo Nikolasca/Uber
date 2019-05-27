@@ -106,10 +106,10 @@ public class UsuarioController{
         c.add(so);
         usuarios.add(so)
         
-            
+        return usuarios;
         }
        
-        return usuarios;
+       
 
     }
     @RequestMapping(value = "/UpdateL", method = RequestMethod.POST)
