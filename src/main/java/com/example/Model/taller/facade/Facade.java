@@ -38,6 +38,12 @@ public class Facade {
        user.setPassword("123");
        user.setTipo_Usuario("Administrador");
      this.componentes.add(user);
+     Usuario user2 = new Conductor();
+     user2.setUsuario("conductor");
+     user2.setPassword("123");
+     user2.setTipo_Usuario("Conducotr");
+
+
     }
 
     public static Facade getFacade() {
