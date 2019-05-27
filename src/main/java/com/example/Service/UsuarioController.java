@@ -104,14 +104,12 @@ public class UsuarioController{
         so.setLong(-122.084046);
         ArrayList <Usuario> c = new ArrayList();
         c.add(so);
-        for (Usuario user : usuarios) {
-            if(user.getTipo_Usuario().compareTo("Conductor")==0){
-                c.add(user);
-            }
+        usuarios.add(so)
+        
             
         }
        
-        return c;
+        return usuarios;
 
     }
     @RequestMapping(value = "/UpdateL", method = RequestMethod.POST)
