@@ -111,7 +111,7 @@ public class UsuarioController{
        
        
 
-    }
+    
     @RequestMapping(value = "/UpdateL", method = RequestMethod.POST)
     @ResponseBody
     public String ActualizarLocation (@RequestParam("id") int ID, @RequestParam("Lat") double Lat, @RequestParam("Long") double Long){
