@@ -66,6 +66,11 @@ public class Proxy {
         return this.facade.getComponentes();
     
     }
+    public void ActPos(int id,double lat double lon){
+     this.facade.ActPosicion(id,lat,lon);
+
+
+    }
 
     
 }
