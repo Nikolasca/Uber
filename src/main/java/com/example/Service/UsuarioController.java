@@ -79,7 +79,7 @@ public class UsuarioController{
         for (Usuario usuario : usuarios) {
             if ((usuario.getUsuario().compareTo(user) == 0) && (usuario.getPassword().compareTo(pass) == 0)) {
                 x = true;
-                return mensaje = "Usuario Aceptado,"+usuario.getUsuario()+","+usuario.getPassword()+","+usuario.getTipo_Usuario()+","+usuario.getEmail()+","+usuario.getId()+",";
+                return mensaje = "UsuarioAceptado,"+usuario.getUsuario()+","+usuario.getPassword()+","+usuario.getTipo_Usuario()+","+usuario.getEmail()+","+usuario.getId()+",";
             }
 
         }
@@ -95,17 +95,29 @@ public class UsuarioController{
     @RequestMapping(value = "/Conductores", method = RequestMethod.GET)
     @ResponseBody
     public ArrayList <Usuario> TraerConductores (){
+        Usuario so = new Conductor();
+        ArrayList<Usuario> usuarios =  proxy.Traer_Usuario();
+        so.setUsuario("PRUEBA");
+        so.setTipo_Usuario("Conductor");
+        so.setPassword("123");
+        so.setLat(37.41745719539887);
+        so.setLong(-122.084046);
         ArrayList <Usuario> c = new ArrayList();
-        ArrayList<Usuario> usuarios = s.getUsuarios();
-        for (Usuario usuario : usuarios) {
-            if(usuario.getTipo_Usuario().compareTo("Conductor")==0){
-               c.add(usuario);    
+        c.add(so);
+        usuarios.add(so);
+        for(int i=0; i<usuarios.size();i++){
+            if(usuarios.get(i).getTipo_Usuario().compareTo("Conductor")==0){
+               c.add(usuarios.get(i));
+                    
             }
-            
+        
         }
         return c;
+        }
+       
+       
 
-    }
+    
     @RequestMapping(value = "/UpdateL", method = RequestMethod.POST)
     @ResponseBody
     public String ActualizarLocation (@RequestParam("id") int ID, @RequestParam("Lat") double Lat, @RequestParam("Long") double Long){
@@ -128,14 +140,17 @@ public class UsuarioController{
     @RequestMapping(value = "/Acceso", method = RequestMethod.POST)
     @ResponseBody
     public String AccesoGeneral(@RequestParam("cadena") String Acceso) throws NoSuchMethodException{
-
-        String res = proxy.llamarMetodoGeneral(Acceso);
-        if(res==null){
-
-            res = "No responde";
+        String res = "Nada";
+        System.out.println(Acceso);
+        try{
+        res = proxy.llamarMetodoGeneral(Acceso);
         }
+        catch(Exception E){
+            res = E.getMessage();
+        }
+        finally {
         return res;
-
+        }
 
       
     }
@@ -146,10 +161,18 @@ public class UsuarioController{
 
        proxy.crearUsuario(nombre, pass, tipo,nombreCompleto,telefono,documento,email);
         
-       return("Se creo el usuario");
+       return "Se creo el usuario";
 
 
       
+    }
+    @RequestMapping(value = "/ActPos", method = RequestMethod.POST)
+    @ResponseBody
+    public String  ActP(@RequestParam("id") int id, @RequestParam("lat") double lat, @RequestParam("lon") double lon){
+
+        proxy.ActPos(id,lat,lon);
+        return "Todo bien";
+
     }
 }
 

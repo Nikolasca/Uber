@@ -5,6 +5,7 @@
  */
 package Proxy;
 
+import AdapterPackage.Usuario;
 import java.util.ArrayList;
 import taller.facade.Facade;
 
@@ -27,7 +28,7 @@ public class Proxy {
     public boolean validarUsuario(String nombreU, String passwordU) {
         boolean ingreso = false;
         int encontrado = 0;
-        String[] info = facade.Consultar_Usuario(nombreU).split(",");
+        String[] info = facade.Consultar_Usuario(nombreU,passwordU).split(",");
         for (int i = 0; i < nombreUsuario.size(); i++) {
             if (nombreUsuario.get(i).equalsIgnoreCase(nombreU) && paseUsuario.get(i).equalsIgnoreCase(passwordU) && info[0].equalsIgnoreCase(nombreU) && info[1].equalsIgnoreCase(passwordU)) {
                 encontrado += 1;
@@ -61,4 +62,15 @@ public class Proxy {
         String x = facade.Acceso(accion, nombreU, passU, para);
         return x;
     }
+    public ArrayList <Usuario> Traer_Usuario(){
+        return this.facade.getComponentes();
+    
+    }
+    public void ActPos(int id,double lat, double lon){
+     this.facade.ActPosicion(id,lat,lon);
+
+
+    }
+
+    
 }

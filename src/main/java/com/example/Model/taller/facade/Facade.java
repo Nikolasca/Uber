@@ -33,8 +33,20 @@ public class Facade {
     private MedioTransporte mT = new MedioTransporte("GrupoBase");
 
     public Facade() {
-        Usuario user = new Adapter("Hola", "123", 1);
-        this.componentes.add(user);
+       Usuario user = new Adapter();
+       user.setUsuario("admin");
+       user.setPassword("123");
+       user.setId(this.componentes.size()+1);
+       user.setTipo_Usuario("Administrador");
+     this.componentes.add(user);
+     Usuario user2 = new Conductor();
+     user2.setUsuario("conductor");
+     user2.setPassword("123");
+     user2.setTipo_Usuario("Conductor");
+     user2.setId(this.componentes.size()+1);
+     this.componentes.add(user2);
+
+
     }
 
     public static Facade getFacade() {
@@ -62,8 +74,8 @@ public class Facade {
             String[] para = Para.split("-");
             for (int j = 0; j < parts.length; j++) {
                 if (Accion.equals("CrearReserva")) {
-                    CrearReserva(para[0], para[1], para[2], para[3], para[4]);
-                    x="ok";
+                   int s=  CrearReserva(para[0], para[1], para[2], para[3]);
+                    x="Se creo reserva, id: "+s;
                     j = parts.length;
                 }
                 if (Accion.equals("LeerReserva")) {
@@ -122,7 +134,11 @@ public class Facade {
                     
                 }
                 if (Accion.equals("Consultar_Usuario")) {
-                    x = Consultar_Usuario(para[0]);
+                    x = Consultar_Usuario(para[0], para[1]);
+                    j = parts.length;
+                }
+                if (Accion.equals("Consultar_Usuario2")) {
+                    x = Consultar_Usuario2(para[0]);
                     j = parts.length;
                 }
                 if(Accion.equals("verEstado")){
@@ -141,17 +157,17 @@ public class Facade {
                 }
                 if (Accion.equals("mod_Usuario")) {
                     mod_Usuario(para[0], para[1], para[2]);
-                    x="ok";
+                    x="Atributo cambiado: "+para[1]+" Nuevo valor: "+para[2];
                     j = parts.length;
                 }
                 if (Accion.equals("crearCredito")) {
                     crearCredito(Integer.parseInt(para[0]), para[1], para[2], Float.parseFloat(para[3]),para[4]);
-                    x="ok";
+                    x="Pago Creado, id:"+Integer.parseInt(para[0]);
                     j = parts.length;
                 }
                 if (Accion.equals("crearEfectivo")) {
                     crearEfectivo(Integer.parseInt(para[0]), para[1], para[2], Float.parseFloat(para[3]), para[4]);
-                    x="ok";
+                    x="Pago Creado, id:"+Integer.parseInt(para[0]);
                     j = parts.length;
                 }
                 if (Accion.equals("EliminarPago")) {
@@ -171,7 +187,7 @@ public class Facade {
                 }
                 if (Accion.equals("crearAgrupacion")) {
                     crearAgrupacion(para[0]);
-                    x="ok";
+                    x="Se creo Agrupación";
                     j = parts.length;
                 }
                 if (Accion.equals("agregarUbicaciones")) {
@@ -183,14 +199,20 @@ public class Facade {
                     x = verUbicaciones(para[0]);
                     j = parts.length;
                 }
+                if (Accion.equals("ActPosicion")) {
+                    ActPosicion(Integer.parseInt(para[0]), 37.41745719539887, -122.084046);
+                    x = "Se actualizo Ubicacion";
+                    j = parts.length;
+                }
                 if (Accion.equals("CrearVehiculo")) {
+                    System.out.println(para.length);
                     if (para.length == 8) {
                         crearVehiculo(para[0], para[1], para[2], para[3], para[4], para[5], para[6], para[7]);
-                        x="ok";
+                        x="Toma casi todo tu vehículo";
                         j = parts.length;
                     } else {
                         crearVehiculoconCarac(para[0], para[1], para[2], para[3], para[4], para[5], para[6], para[7], Integer.parseInt(para[8]), para[9], para[10]);
-                        x="ok";
+                        x="Toma tu vehiculo completo";
                         j = parts.length;
                     }
                 }
@@ -245,7 +267,13 @@ public class Facade {
             Usuario usuario = new Conductor(User, pass, nombreCompleto, telefono, documento, email, id);
             usuario.setTipo_Usuario(Tipo);
             componentes.add(usuario);
-        } else {
+        }  else if (Tipo.equals("Administrador")) {
+            Usuario usuario = new Adapter();
+            usuario.setUsuario(User);
+            usuario.setPassword(pass);
+            usuario.setTipo_Usuario(Tipo);
+            componentes.add(usuario);
+        }else {
             System.out.print("No hizo match tipo");
         }
     }
@@ -268,16 +296,39 @@ public class Facade {
             System.out.print("No hizo match tipo");
         }
     }
-
-    public String Consultar_Usuario(String User) {
+public void ActPosicion(int id, double Lat, double Long){
+    for (Usuario componente : componentes) {
+        if(componente.getId() ==id){
+            componente.setLat(Lat);
+            componente.setLong(Long);
+        }
+        
+    }
+    
+}
+    public String Consultar_Usuario(String User, String Pass) {
         String info = "";
         for (int i = 0; i < componentes.size(); i++) {
-            if (componentes.get(i).getUsuario().equalsIgnoreCase(User)) {
+            if (componentes.get(i).getUsuario().equalsIgnoreCase(User)&& componentes.get(i).getPassword().equalsIgnoreCase(Pass))  {
                 if (componentes.get(i).getTipo_Usuario().equalsIgnoreCase("Administrador")) {
-                    info = componentes.get(i).getUsuario() + "," + componentes.get(i).getPassword() + "," + componentes.get(i).getTipo_Usuario() + ",";
+                    info = "UsuarioAceptadoXX"+componentes.get(i).getUsuario() + "XX" + componentes.get(i).getPassword() + "XX" + componentes.get(i).getTipo_Usuario() + "XX";
                 } else {
-                    info = componentes.get(i).getUsuario() + "," + componentes.get(i).getPassword() + "," + componentes.get(i).getTipo_Usuario() + "," + componentes.get(i).getNombre() + ","
-                            + componentes.get(i).getTelefono() + "," + componentes.get(i).getDocumento() + "," + componentes.get(i).getEmail() + ",";
+                    info = "UsuarioAceptadoXX"+componentes.get(i).getUsuario() + "XX" + componentes.get(i).getPassword() + "XX" + componentes.get(i).getTipo_Usuario() + "XX"
+                            + componentes.get(i).getTelefono()  + "XX" + componentes.get(i).getEmail() + "XX"+ componentes.get(i).getId()+"XX"+ componentes.get(i).getLat()+"XX"+ componentes.get(i).getLong()+"XX" ;
+                }
+            }
+        }
+        return info;
+    }
+    public String Consultar_Usuario2(String User) {
+        String info = "";
+        for (int i = 0; i < componentes.size(); i++) {
+            if (componentes.get(i).getUsuario().equalsIgnoreCase(User))  {
+                if (componentes.get(i).getTipo_Usuario().equalsIgnoreCase("Administrador")) {
+                    info = componentes.get(i).getUsuario() + "XX" + componentes.get(i).getPassword() + "XX" + componentes.get(i).getTipo_Usuario() + "XX";
+                } else {
+                    info = componentes.get(i).getUsuario() + "XX" + componentes.get(i).getPassword() + "XX" + componentes.get(i).getTipo_Usuario() + "XX"
+                            + componentes.get(i).getTelefono()  + "XX" + componentes.get(i).getEmail() + "XX"+ componentes.get(i).getId()+"XX"+ componentes.get(i).getLat()+"XX"+ componentes.get(i).getLong()+"XX" ;
                 }
             }
         }
@@ -387,15 +438,17 @@ public class Facade {
     public void ModificarIndividual(String caracteristica, String nuevo) {
         mT.cambiarAtributo(caracteristica, nuevo);
         System.out.println("ModInd" + caracteristica);
+
     }
 
     public void eliminarElemento(String nombre) {
         mT.Eliminar(mT.getGrupo(nombre));
     }
 
-    public void CrearReserva(String nombre, String id, String fecha, String concepto, String lugar) {
-       Reserva reserva = new Reserva(nombre, id, fecha, concepto, lugar);
+    public int CrearReserva(String nombre,  String fecha, String concepto, String lugar) {
+       Reserva reserva = new Reserva(nombre, String.valueOf(G2.CantidadReservas()+1), fecha, concepto, lugar);
         G2.AnadirGrupito(reserva);
+        return G2.CantidadReservas();
     }
 
     public void EliminarReserva(Reserva r) {
@@ -495,4 +548,10 @@ public class Facade {
         }
         return state;
     }
+
+    public ArrayList<Usuario> getComponentes() {
+        return componentes;
+    }
+
+    
 }
