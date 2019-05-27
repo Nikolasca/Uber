@@ -33,8 +33,8 @@ public class Facade {
     private MedioTransporte mT = new MedioTransporte("GrupoBase");
 
     public Facade() {
-        Usuario user = new Adapter("Hola", "123", 1);
-        this.componentes.add(user);
+       // Usuario user = new Adapter("Hola", "123", 1);
+       // this.componentes.add(user);
     }
 
     public static Facade getFacade() {
