@@ -203,11 +203,11 @@ public class Facade {
                 if (Accion.equals("CrearVehiculo")) {
                     if (para.length == 8) {
                         crearVehiculo(para[0], para[1], para[2], para[3], para[4], para[5], para[6], para[7]);
-                        x="ok";
+                        x="Toma casi todo tu vehículo";
                         j = parts.length;
                     } else {
                         crearVehiculoconCarac(para[0], para[1], para[2], para[3], para[4], para[5], para[6], para[7], Integer.parseInt(para[8]), para[9], para[10]);
-                        x="Toma tu vehiculo";
+                        x="Toma tu vehiculo completo";
                         j = parts.length;
                     }
                 }
