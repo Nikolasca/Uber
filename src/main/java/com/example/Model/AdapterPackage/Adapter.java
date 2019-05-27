@@ -77,14 +77,13 @@ private Administrador admin;
         return super.getId(); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public void setTipo_Usuario(String Tipo_Usuario) {
-        super.setTipo_Usuario(Tipo_Usuario); //To change body of generated methods, choose Tools | Templates.
+     public void setTipo(String tipo) {
+        super.setTipo_Usuario(tipo);
     }
 
     @Override
     public String getTipo_Usuario() {
-        return super.getTipo_Usuario(); //To change body of generated methods, choose Tools | Templates.
+        return super.getTipo_Usuario();
     }
 
     @Override
