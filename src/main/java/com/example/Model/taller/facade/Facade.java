@@ -157,7 +157,7 @@ public class Facade {
                 }
                 if (Accion.equals("mod_Usuario")) {
                     mod_Usuario(para[0], para[1], para[2]);
-                    x="Atributo cambiado: "+para[1]+"Nuevo valor: "+para[2];
+                    x="Atributo cambiado: "+para[1]+" Nuevo valor: "+para[2];
                     j = parts.length;
                 }
                 if (Accion.equals("crearCredito")) {
