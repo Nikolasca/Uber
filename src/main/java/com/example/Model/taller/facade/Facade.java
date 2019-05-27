@@ -146,8 +146,8 @@ public class Facade {
                     j=parts.length;
                 }
                 if(Accion.equals("cambiarEstado")){
-                    mod_Usuario(para[0],"usuario",para[1]);
-                    x="Nuevo Atributo: " +para[1];
+                    mod_Usuario(para[0],"estado",para[1]);
+                    x="ok";
                     j=parts.length;
                 }
                 if (Accion.equals("eliminar_Usuario")) {
@@ -157,7 +157,7 @@ public class Facade {
                 }
                 if (Accion.equals("mod_Usuario")) {
                     mod_Usuario(para[0], para[1], para[2]);
-                    x="ok";
+                    x="Atributo cambiado: "+para[1]+"Nuevo valor: "+para[2];
                     j = parts.length;
                 }
                 if (Accion.equals("crearCredito")) {
