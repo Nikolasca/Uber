@@ -260,7 +260,13 @@ public class Facade {
             Usuario usuario = new Conductor(User, pass, nombreCompleto, telefono, documento, email, id);
             usuario.setTipo_Usuario(Tipo);
             componentes.add(usuario);
-        } else {
+        }  else if (Tipo.equals("Administrador")) {
+            Usuario usuario = new Adapter();
+            usuario.setUsuario(User);
+            usuario.setPassword(pass);
+            usuario.setTipo_Usuario(Tipo);
+            componentes.add(usuario);
+        }else {
             System.out.print("No hizo match tipo");
         }
     }
