@@ -163,7 +163,7 @@ public class UsuarioController{
     public String  ActP(@RequestParam("id") int id, @RequestParam("lat") double lat, @RequestParam("lon") double lon){
 
         proxy.ActPosicion(id,lat,lon);
-        return "Todo bien"
+        return "Todo bien";
 
     }
 }
