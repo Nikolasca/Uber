@@ -62,7 +62,7 @@ public class Facade {
             String[] para = Para.split("-");
             for (int j = 0; j < parts.length; j++) {
                 if (Accion.equals("CrearReserva")) {
-                    CrearReserva(para[0], para[2], para[3], para[4]);
+                    CrearReserva(para[0], para[1], para[2], para[3]);
                     x="Se creo reserva";
                     j = parts.length;
                 }
