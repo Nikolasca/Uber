@@ -201,6 +201,7 @@ public class Facade {
                     j = parts.length;
                 }
                 if (Accion.equals("CrearVehiculo")) {
+                    System.out.println(para.length);
                     if (para.length == 8) {
                         crearVehiculo(para[0], para[1], para[2], para[3], para[4], para[5], para[6], para[7]);
                         x="Toma casi todo tu vehículo";
