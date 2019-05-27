@@ -103,7 +103,8 @@ public class UsuarioController{
         so.setLong(-122.084046);
         ArrayList <Usuario> c = new ArrayList();
         c.add(so);
-        
+        ArrayList<Usuario> usuarios =  proxy.Traer_Usuario();
+       
         return c;
 
     }
