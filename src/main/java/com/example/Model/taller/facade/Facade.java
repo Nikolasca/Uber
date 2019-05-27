@@ -62,8 +62,8 @@ public class Facade {
             String[] para = Para.split("-");
             for (int j = 0; j < parts.length; j++) {
                 if (Accion.equals("CrearReserva")) {
-                    CrearReserva(para[0], para[1], para[2], para[3], para[4]);
-                    x="ok";
+                    CrearReserva(para[0], para[2], para[3], para[4]);
+                    x="Se creo reserva";
                     j = parts.length;
                 }
                 if (Accion.equals("LeerReserva")) {
@@ -407,8 +407,8 @@ public void ActPosicion(int id, double Lat, double Long){
         mT.Eliminar(mT.getGrupo(nombre));
     }
 
-    public void CrearReserva(String nombre, String id, String fecha, String concepto, String lugar) {
-       Reserva reserva = new Reserva(nombre, id, fecha, concepto, lugar);
+    public void CrearReserva(String nombre,  String fecha, String concepto, String lugar) {
+       Reserva reserva = new Reserva(nombre, String.valueOf(G2.CantidadReservas()+1), fecha, concepto, lugar);
         G2.AnadirGrupito(reserva);
     }
 
