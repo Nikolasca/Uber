@@ -183,7 +183,7 @@ public class Facade {
                 }
                 if (Accion.equals("crearAgrupacion")) {
                     crearAgrupacion(para[0]);
-                    x="ok";
+                    x="Se creo Agrupación";
                     j = parts.length;
                 }
                 if (Accion.equals("agregarUbicaciones")) {
@@ -207,7 +207,7 @@ public class Facade {
                         j = parts.length;
                     } else {
                         crearVehiculoconCarac(para[0], para[1], para[2], para[3], para[4], para[5], para[6], para[7], Integer.parseInt(para[8]), para[9], para[10]);
-                        x="ok";
+                        x="Toma tu vehiculo";
                         j = parts.length;
                     }
                 }
