@@ -41,7 +41,8 @@ public class Facade {
      Usuario user2 = new Conductor();
      user2.setUsuario("conductor");
      user2.setPassword("123");
-     user2.setTipo_Usuario("Conducotr");
+     user2.setTipo_Usuario("Conductor");
+     this.componentes.add(user2);
 
 
     }
