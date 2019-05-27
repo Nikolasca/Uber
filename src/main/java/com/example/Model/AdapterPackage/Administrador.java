@@ -33,6 +33,7 @@ public class Administrador {
         return "Crear_Usuario,CrearVehiculo,crearAgrupacion,AgregarAgrupacion,EliminarElemento,eliminar_Usuario,Consultar_Usuario,CerrarSesion,mod_Usuario,InmovilizarUsuario,VerTodos,ModificarNombre_Elemento,Consultar_UsuarioId";
     }
 
+    
     public void setPassword(String Password) {
         this.Password = Password;
     }

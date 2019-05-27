@@ -32,8 +32,9 @@ private Administrador admin;
         this.admin = new Administrador();
     }
 
-    public String gettipoUsuario() {
-        return this.admin.tomatuusuario();
+     @Override
+    public String getTipo_Usuario() {
+        return super.getTipo_Usuario();
     }
 
     public Administrador getAdmin() {
