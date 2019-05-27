@@ -102,14 +102,8 @@ public class UsuarioController{
         so.setLat(37.41745719539887);
         so.setLong(-122.084046);
         ArrayList <Usuario> c = new ArrayList();
-        ArrayList<Usuario> usuarios =  proxy.Traer_Usuario();
-        for (Usuario usuario : usuarios) {
-            if(usuario.getTipo_Usuario().compareTo("Conductor")==0){
-               c.add(usuario);    
-            }
-            c.add(so);
-            
-        }
+        c.add(so);
+        
         return c;
 
     }
