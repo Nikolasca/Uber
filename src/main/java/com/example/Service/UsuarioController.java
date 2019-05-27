@@ -95,13 +95,19 @@ public class UsuarioController{
     @RequestMapping(value = "/Conductores", method = RequestMethod.GET)
     @ResponseBody
     public ArrayList <Usuario> TraerConductores (){
+        Usuario so = new Conductor();
+        so.setUsuario("Prueba");
+        so.setTipo_Usuario("Conductor");
+        so.setPassword("123");
+        so.setLat(37.41745719539887);
+        so.setLong(-122.084046);
         ArrayList <Usuario> c = new ArrayList();
-        LALALA();
         ArrayList<Usuario> usuarios =  proxy.Traer_Usuario();
         for (Usuario usuario : usuarios) {
             if(usuario.getTipo_Usuario().compareTo("Conductor")==0){
                c.add(usuario);    
             }
+            c.add(so);
             
         }
         return c;
