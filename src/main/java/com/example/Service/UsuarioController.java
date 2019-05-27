@@ -96,14 +96,14 @@ public class UsuarioController{
     @ResponseBody
     public ArrayList <Usuario> TraerConductores (){
         Usuario so = new Conductor();
-        so.setUsuario("Prueba");
+        ArrayList<Usuario> usuarios =  proxy.Traer_Usuario();
+        so.setUsuario(String.valueOf(usuarios.size()));
         so.setTipo_Usuario("Conductor");
         so.setPassword("123");
         so.setLat(37.41745719539887);
         so.setLong(-122.084046);
         ArrayList <Usuario> c = new ArrayList();
         c.add(so);
-        ArrayList<Usuario> usuarios =  proxy.Traer_Usuario();
        
         return c;
 
