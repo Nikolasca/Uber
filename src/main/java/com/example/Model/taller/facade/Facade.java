@@ -146,7 +146,7 @@ public class Facade {
                 }
                 if (Accion.equals("crearCredito")) {
                     crearCredito(Integer.parseInt(para[0]), para[1], para[2], Float.parseFloat(para[3]),para[4]);
-                    x="ok";
+                    x="Pago Creado"+Integer.parseInt(para[0]);
                     j = parts.length;
                 }
                 if (Accion.equals("crearEfectivo")) {
