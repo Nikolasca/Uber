@@ -162,7 +162,7 @@ public class UsuarioController{
     @ResponseBody
     public String  ActP(@RequestParam("id") int id, @RequestParam("lat") double lat, @RequestParam("lon") double lon){
 
-        proxy.ActPosicion(id,lat,lon);
+        proxy.ActPos(id,lat,lon);
         return "Todo bien";
 
     }
