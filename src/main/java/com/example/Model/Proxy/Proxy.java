@@ -40,11 +40,11 @@ public class Proxy {
         return ingreso;
     }
 
-    public void crearUsuario(String nombre, String pass, String tipo,String nombreCompleto,int telefono,String documento,String email,int id) {
-        facade.Crear_Usuario(nombre, pass, tipo,nombreCompleto,telefono,documento,email,telefono);
-        nombreUsuario.add(nombre);
-        paseUsuario.add(pass);
-    }
+   // public void crearUsuario(String nombre, String pass, String tipo,String nombreCompleto,int telefono,String documento,String email,int id) {
+     //   facade.Crear_Usuario(nombre, pass, tipo,nombreCompleto,telefono,documento,email,telefono);
+       // nombreUsuario.add(nombre);
+       // paseUsuario.add(pass);
+   // }
     
  public void crearUsuario(String nombre, String pass, String tipo, String nombreCompleto, int telefono, String documento, String email) {
         nombreUsuario.add(nombre);

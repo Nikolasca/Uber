@@ -159,11 +159,19 @@ public class Conductor extends Usuario {
     public String getEstado() {
         return estadoActivo;
     }
+<<<<<<< HEAD
 
     public void setEstado(String estadoActivo) {
         this.estadoActivo = estadoActivo;
     }
 
+=======
+
+    public void setEstado(String estadoActivo) {
+        this.estadoActivo = estadoActivo;
+    }
+
+>>>>>>> 1b4a541711d2a25b2545087d74b86566dbd5091c
     @Override
     public void crearTarjeta(String Num, String CVV, String FV) {
        System.out.println("Paso1");
@@ -183,5 +191,10 @@ public class Conductor extends Usuario {
         if(carac.equalsIgnoreCase("Fecha de Vencimiento")){
             this.factory.setFechaVenc(nuevo);
         }
+<<<<<<< HEAD
+=======
+       System.out.println("Tarjeta Creada");
+    
+>>>>>>> 1b4a541711d2a25b2545087d74b86566dbd5091c
     }
 }

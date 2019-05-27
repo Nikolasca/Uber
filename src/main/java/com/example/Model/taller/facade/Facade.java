@@ -10,7 +10,7 @@ import AdapterPackage.Conductor;
 import AdapterPackage.Pasajero;
 import AdapterPackage.Usuario;
 import Composite.*;
-import Decorator.*;
+//import Decorator.*;
 import Flyweight.FlyWeight;
 import Flyweight.FlyWeightFactory;
 import java.lang.reflect.InvocationTargetException;
@@ -115,15 +115,11 @@ public class Facade {
                     j = parts.length;
                 }
                 if (Accion.equals("Crear_Usuario")) {
-                    if (para.length == 4) {
-                        Crear_Usuario(para[0], para[1], para[2], Integer.parseInt(para[3]));
+                    
+                        Crear_Usuario(para[0], para[1], para[2], para[3],Integer.parseInt(para[4]), para[5], para[6]);
                         x="ok";
                         j = parts.length;
-                    } else {
-                        Crear_Usuario(para[0], para[1], para[2], para[3], Integer.parseInt(para[4]), para[5], para[6], Integer.parseInt(para[7]));
-                        x="ok";
-                        j = parts.length;
-                    }
+                    
                 }
                 if (Accion.equals("Consultar_Usuario")) {
                     x = Consultar_Usuario(para[0]);
@@ -149,7 +145,7 @@ public class Facade {
                     j = parts.length;
                 }
                 if (Accion.equals("crearCredito")) {
-                    crearCredito(Integer.parseInt(para[0]), para[1], para[2], Float.parseFloat(para[3]));
+                    crearCredito(Integer.parseInt(para[0]), para[1], para[2], Float.parseFloat(para[3]),para[4]);
                     x="ok";
                     j = parts.length;
                 }
@@ -164,7 +160,7 @@ public class Facade {
                     j = parts.length;
                 }
                 if (Accion.equals("ModificarPago")) {
-                    componentes.get(a).getFactory().ModificarPago(Integer.parseInt(para[0]), para[1], para[2], para[3]);
+                    componentes.get(a).getFactory().ModificarPago(Integer.parseInt(para[0]), para[1], para[2], para[3],para[4]);
                     x="ok";
                     j = parts.length;
                 }
@@ -242,7 +238,7 @@ public class Facade {
     public void Crear_Usuario(String User, String pass, String Tipo, String nombreCompleto, int telefono, String documento, String email) {
         int id = componentes.size() + 1;
         if (Tipo.equals("Pasajero")) {
-            Usuario usuario = new Pasajero(User, pass, nombreCompleto, telefono, documento, email, id);
+           Usuario usuario = new Pasajero(User, pass, nombreCompleto, telefono, documento, email, id);
             usuario.setTipo_Usuario(Tipo);
             componentes.add(usuario);
         } else if (Tipo.equals("Conductor")) {
@@ -321,17 +317,18 @@ public class Facade {
         }
     }
 
-    public void crearCredito(int id, String nombrePasajero, String nombreConductor, float monto) {
-        FF.CrearPagoTarjeta(id, nombrePasajero, nombreConductor, monto);
+    public void crearCredito(int id, String nombrePasajero, String nombreConductor, float monto,String otros) {
+       FF.CrearPagoTarjeta(id, nombrePasajero, nombreConductor, monto,otros);
         FlyWeight F = FF.Getpago(id);
         for (int i = 0; i < componentes.size(); i++) {
             if (componentes.get(i).getUsuario().equalsIgnoreCase(nombrePasajero)) {
+             componentes.get(i).getFactory().CrearPagoTarjeta(id, nombrePasajero, nombreConductor, monto,otros);
                 for (int j = 0; j < componentes.size(); j++) {
                     if (componentes.get(j).getUsuario().equalsIgnoreCase(nombreConductor)) {
                         componentes.get(i).getFactory().setNumTarjD(componentes.get(j).getFactory().getNumTarj());
                     }
                 }
-                componentes.get(i).getFactory().CrearPagoTarjeta(id, nombrePasajero, nombreConductor, monto);
+                componentes.get(i).getFactory().CrearPagoTarjeta(id, nombrePasajero, nombreConductor, monto,otros);
             }
         }
     }
@@ -364,7 +361,7 @@ public class Facade {
     }
 
     public void crearVehiculo(String nombreG, String nombre, String tipo, String placa, String cantidadpuestos, String marca, String ano, String referencia) {
-        Transporte aN = new Individual(nombre, tipo, placa, cantidadpuestos, marca, ano, referencia);
+       Transporte aN = new Individual(nombre, tipo, placa, cantidadpuestos, marca, ano, referencia);
         if (nombreG.equalsIgnoreCase("")) {
             mT.Crear(aN);
         } else {
@@ -373,7 +370,7 @@ public class Facade {
     }
 
     public void crearVehiculoconCarac(String nombreG, String nombre, String tipo, String placa, String cantidadpuestos, String marca, String ano, String referencia, int capacidad, String descripcion, String identificador) {
-        Transporte aN = new IdentificadorDecorator(identificador, new DescripcionDecorator(descripcion, new CapacidadDecorator(capacidad, new Individual(nombre, tipo, placa, cantidadpuestos, marca, ano, referencia))));
+       Transporte aN = new IdentificadorDecorator(identificador, new DescripcionDecorator(descripcion, new CapacidadDecorator(capacidad, new Individual(nombre, tipo, placa, cantidadpuestos, marca, ano, referencia))));
         if (nombreG.equalsIgnoreCase("")) {
             mT.Crear(aN);
         } else {
@@ -397,8 +394,8 @@ public class Facade {
     }
 
     public void CrearReserva(String nombre, String id, String fecha, String concepto, String lugar) {
-        Reserva reserva = new Reserva(nombre, id, fecha, concepto, lugar);
-        G2.AñadirGrupito(reserva);
+       Reserva reserva = new Reserva(nombre, id, fecha, concepto, lugar);
+        G2.AnadirGrupito(reserva);
     }
 
     public void EliminarReserva(Reserva r) {
@@ -414,12 +411,12 @@ public class Facade {
     }
 
     public String LeerReserva(String id) {
-        return G2.LeerReserva(id);
+          return G2.LeerReserva(id);
     }
 
     public void CrearPago(String nombre, String id, int pago, String fecha, String concepto) {
         Pago pago1 = new Pago(nombre, id, pago, fecha, concepto);
-        G1.AñadirGrupito(pago1);
+        G1.AnadirGrupito(pago1);
     }
 
     public void EliminarPago(Pago r) {
@@ -462,7 +459,7 @@ public class Facade {
         String ubicacion = "";
         for (int i = 0; i < componentes.size(); i++) {
             if (componentes.get(i).getUsuario().equalsIgnoreCase(nombreU)) {
-                ubicacion = componentes.get(i).getUbicaciones();
+               ubicacion = componentes.get(i).getUbicaciones();
             }
         }
         return ubicacion;
@@ -471,7 +468,7 @@ public class Facade {
         System.out.println("CrearC"+nombreU+Num+CVV+fv);
         for (int i = 0; i < componentes.size(); i++) {
             if (componentes.get(i).getUsuario().equalsIgnoreCase(nombreU)) {
-                componentes.get(i).crearTarjeta(Num, CVV, fv);
+               componentes.get(i).crearTarjeta(Num, CVV, fv);
             }
         }
     }
