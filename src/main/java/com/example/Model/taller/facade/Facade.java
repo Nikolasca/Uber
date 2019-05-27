@@ -36,12 +36,14 @@ public class Facade {
        Usuario user = new Adapter();
        user.setUsuario("admin");
        user.setPassword("123");
+       user.setId(this.componentes.size()+1);
        user.setTipo_Usuario("Administrador");
      this.componentes.add(user);
      Usuario user2 = new Conductor();
      user2.setUsuario("conductor");
      user2.setPassword("123");
      user2.setTipo_Usuario("Conductor");
+     user2.setId(this.componentes.size()+1);
      this.componentes.add(user2);
 
 
