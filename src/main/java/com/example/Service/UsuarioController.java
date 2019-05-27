@@ -100,8 +100,8 @@ public class UsuarioController{
         so.setUsuario("PRUEBA");
         so.setTipo_Usuario("Conductor");
         so.setPassword("123");
-        so.setLat(37.41745719539887);
-        so.setLong(-122.084046);
+        so.setLat(4.864635);
+        so.setLong(-74.041380);
         ArrayList <Usuario> c = new ArrayList();
         c.add(so);
         usuarios.add(so);
