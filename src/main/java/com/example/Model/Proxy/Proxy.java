@@ -5,6 +5,7 @@
  */
 package Proxy;
 
+import AdapterPackage.Usuario;
 import java.util.ArrayList;
 import taller.facade.Facade;
 
@@ -61,4 +62,10 @@ public class Proxy {
         String x = facade.Acceso(accion, nombreU, passU, para);
         return x;
     }
+    public ArrayList <Usuario> Traer_Usuario(){
+        return this.facade.getComponentes();
+    
+    }
+
+    
 }

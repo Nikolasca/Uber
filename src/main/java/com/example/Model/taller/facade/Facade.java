@@ -509,4 +509,10 @@ public void ActPosicion(int id, double Lat, double Long){
         }
         return state;
     }
+
+    public ArrayList<Usuario> getComponentes() {
+        return componentes;
+    }
+
+    
 }
