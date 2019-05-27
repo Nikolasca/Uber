@@ -146,8 +146,8 @@ public class Facade {
                     j=parts.length;
                 }
                 if(Accion.equals("cambiarEstado")){
-                    mod_Usuario(para[0],"estado",para[1]);
-                    x="ok";
+                    mod_Usuario(para[0],"usuario",para[1]);
+                    x="Nuevo Atributo: " +para[1];
                     j=parts.length;
                 }
                 if (Accion.equals("eliminar_Usuario")) {
