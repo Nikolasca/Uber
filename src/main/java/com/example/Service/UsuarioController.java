@@ -141,6 +141,7 @@ public class UsuarioController{
     @ResponseBody
     public String AccesoGeneral(@RequestParam("cadena") String Acceso) throws NoSuchMethodException{
         String res = "Nada";
+        System.out.println(Acceso);
         try{
         res = proxy.llamarMetodoGeneral(Acceso);
         }
