@@ -32,10 +32,7 @@ private Administrador admin;
         this.admin = new Administrador();
     }
 
-     @Override
-    public String getTipo_Usuario() {
-        return super.getTipo_Usuario();
-    }
+  
 
     public Administrador getAdmin() {
         return admin;
