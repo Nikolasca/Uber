@@ -95,8 +95,8 @@ public class UsuarioController{
     @RequestMapping(value = "/Conductores", method = RequestMethod.GET)
     @ResponseBody
     public ArrayList <Usuario> TraerConductores (){
-       
         ArrayList <Usuario> c = new ArrayList();
+        LALALA();
         ArrayList<Usuario> usuarios =  proxy.Traer_Usuario();
         for (Usuario usuario : usuarios) {
             if(usuario.getTipo_Usuario().compareTo("Conductor")==0){
